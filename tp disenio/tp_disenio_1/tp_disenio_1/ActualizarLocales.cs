@@ -19,7 +19,7 @@ namespace tp_disenio_1
         {
             fechaInicio = DateTime.Now;
             string nombre;
-            List<string> palabrasClaves = new List<string>();
+            HashSet<string> palabrasClaves = new HashSet<string>();
 
             Char delimiter = ';';
             String[] substrings = texto.Split(delimiter);
@@ -45,7 +45,20 @@ namespace tp_disenio_1
             }
             else
             {
-                resultado = false;
+                HorarioDeAtencion sinHorario;
+                sinHorario = new HorarioDeAtencion(new Tuple<int, int>[]{
+                new Tuple<int,int>(0,0),
+                new Tuple<int,int>(0,0),
+                new Tuple<int,int>(0,0),
+                new Tuple<int,int>(0,0),
+                new Tuple<int,int>(0,0),
+                new Tuple<int,int>(0,0),
+                new Tuple<int,int>(0,0),
+            });
+
+                PoiFactory pf = new PoiFactory();
+                pf.agregarLocal(0,0,"",nombre,sinHorario,palabrasClaves,0);
+                resultado = true;
             }
 
             fechaInicio = DateTime.Now;

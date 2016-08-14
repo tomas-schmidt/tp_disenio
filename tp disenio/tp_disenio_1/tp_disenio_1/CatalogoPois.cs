@@ -56,29 +56,7 @@ namespace tp_disenio_1
             return resultado;
         }
 
-        public void agregarParada(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario, string numero)
-        {
-            Parada parada = new Parada(latitud, longitud, nombre, direccion, horario, numero);
-            this.agregarPoi(parada);
-        }
-
-        public void agregarBanco(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario)
-        {
-            Banco banco = new Banco(latitud, longitud, nombre, direccion, horario);
-            this.agregarPoi(banco);
-        }
-
-        public void agregarCGP(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario, int comuna, List<Servicio> servicios)
-        {
-            CGP cgp = new CGP(latitud, longitud, nombre, direccion, horario, comuna, servicios);
-            this.agregarPoi(cgp);
-        }
-
-        public void agregarLocal(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario, HashSet<string> rubros, int radio)
-        {
-            Local local = new Local(latitud, longitud, nombre, direccion, horario, rubros, radio);
-            this.agregarPoi(local);
-        }
+        
 
         public bool tieneA(string nombre)
         {

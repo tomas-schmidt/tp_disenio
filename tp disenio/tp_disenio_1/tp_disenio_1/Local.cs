@@ -39,7 +39,7 @@ namespace tp_disenio_1
             return rubros.Contains(texto);
         }
 
-        public void actualizarLocal(List<string> palabras)
+        public void actualizarLocal(HashSet<string> palabras)
         {
             foreach(string palabra in palabras)
                 this.rubros.Add(palabra);
