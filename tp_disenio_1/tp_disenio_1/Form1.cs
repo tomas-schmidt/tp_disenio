@@ -16,13 +16,15 @@ namespace tp_disenio_1
         {
             InitializeComponent();
         }
-        CatalogoPois catalogo = new CatalogoPois();
+        CatalogoPois catalogo = CatalogoPois.Instance();
         HorarioDeAtencion lunesAVierner9a18;
         Parada parada114;
         Servicio unServicio;
         Banco bancoSantander;
         CGP comuna2;
         Local libreria;
+
+        RepositorioComandos comandos = RepositorioComandos.Instance();
         
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -48,9 +50,12 @@ namespace tp_disenio_1
             List<Servicio> listaServicios = new List<Servicio>();
             listaServicios.Add(unServicio);
 
+            List<string> rubros = new List<string>();
+            rubros.Add("libreria");
+
             comuna2 = new CGP(5, 3, "comuna numero 2", "av cordoba 1000", lunesAVierner9a18, 2, listaServicios);
 
-            libreria = new Local(1, 2, "libreria escolar", "medrano 1200", lunesAVierner9a18, "librerias", 500);
+            libreria = new Local(1, 2, "libreria escolar", "medrano 1200", lunesAVierner9a18, rubros , 500);
 
             bancoSantander = new Banco(6, 9, "banco santander", "lavalle 1502", lunesAVierner9a18);
   

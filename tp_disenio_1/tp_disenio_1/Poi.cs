@@ -10,7 +10,7 @@ namespace tp_disenio_1
     {
         protected double longitud;
         protected double latitud;
-        protected string nombre;
+        public string nombre;
         protected string direccion;
         public HorarioDeAtencion horario;
 

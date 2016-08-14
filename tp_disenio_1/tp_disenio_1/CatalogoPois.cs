@@ -9,6 +9,20 @@ namespace tp_disenio_1
     class CatalogoPois
     {
         protected List<Poi> pois = new List<Poi>();
+        private static CatalogoPois instance;
+
+        private CatalogoPois()
+        {
+        }
+
+        public static CatalogoPois Instance()
+        {
+            if (instance == null)
+            {
+                instance = new CatalogoPois();
+            }
+            return instance;
+        }
 
         public void agregarPoi(Poi poiNuevo)
         {
@@ -60,10 +74,29 @@ namespace tp_disenio_1
             this.agregarPoi(cgp);
         }
 
-        public void agregarLocal(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario, string rubro, int radio)
+        public void agregarLocal(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario, List<string> rubros, int radio)
         {
-            Local local = new Local(latitud, longitud, nombre, direccion, horario, rubro, radio);
+            Local local = new Local(latitud, longitud, nombre, direccion, horario, rubros, radio);
             this.agregarPoi(local);
+        }
+
+        public bool tieneA(string nombre)
+        {
+            foreach (Poi poi in pois)
+            {
+                if (poi.obtenerNombre() == nombre)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public Poi obtenerPoi(string nombre)
+        {
+            Poi poi;
+            poi =pois.Find(p => p.obtenerNombre() == nombre);
+            return poi;
         }
 
 

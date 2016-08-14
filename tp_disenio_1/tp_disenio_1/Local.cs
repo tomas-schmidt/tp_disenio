@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace tp_disenio_1
 {
     class Local:Poi
     {
-        private string rubro;
+        private List<string> rubros;
         private double radioDeCercania;
+        
 
-        public Local(double latitud, double longitud, string nombre, string direccion, HorarioDeAtencion horario, string rubro, int radioDeCercania)
+        public Local(double latitud, double longitud, string nombre, string direccion, HorarioDeAtencion horario, List<string> rubros, int radioDeCercania)
             :base(latitud, longitud, nombre, direccion, horario)
         {
-            this.rubro = rubro;
+            this.rubros = rubros;
             this.radioDeCercania = radioDeCercania;
         }
 
@@ -20,10 +22,10 @@ namespace tp_disenio_1
             return this.horario.estaDisponibleEnFecha(fecha);
         }
 
-        public void inicializoLocal(double radioDeCercania, string rubro)
+        public void inicializoLocal(double radioDeCercania, List<string> rubros)
         {
             this.radioDeCercania = radioDeCercania;
-            this.rubro = rubro;
+            this.rubros = rubros;
         }
 
         public bool estaCercaDe(double latitud, double longitud)
@@ -34,8 +36,15 @@ namespace tp_disenio_1
 
         public override bool matcheaBusquedaEspecifico(String texto)
         {
-            return texto == this.rubro;
+            return rubros.Contains(texto);
         }
+
+        public void actualizarLocal(List<string> palabras)
+        {
+            foreach(string palabra in palabras)
+                this.rubros.Add(palabra);
+        }
+
 
 
 
