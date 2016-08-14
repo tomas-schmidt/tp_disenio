@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tp_disenio_1
+namespace tp_disenio_1.Comandos
 {
-    class Administrador
+    class BajaDePois
     {
     }
 }

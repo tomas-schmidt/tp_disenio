@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace tp_disenio_1
 {
-    public class Usuario
+    class Rol
     {
         string nombre;
-        string username;
-        string password;
-        Rol rol;
+        List<string> acciones = new List<string>();
+
+        public void agregarAccion(string accion)
+        {
+            acciones.Add(accion);
+        }
     }
 }
