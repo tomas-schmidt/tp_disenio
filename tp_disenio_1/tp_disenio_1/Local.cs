@@ -5,11 +5,11 @@ namespace tp_disenio_1
 {
     class Local:Poi
     {
-        private List<string> rubros;
+        private HashSet<string> rubros;
         private double radioDeCercania;
         
 
-        public Local(double latitud, double longitud, string nombre, string direccion, HorarioDeAtencion horario, List<string> rubros, int radioDeCercania)
+        public Local(double latitud, double longitud, string nombre, string direccion, HorarioDeAtencion horario, HashSet<string> rubros, int radioDeCercania)
             :base(latitud, longitud, nombre, direccion, horario)
         {
             this.rubros = rubros;
@@ -22,7 +22,7 @@ namespace tp_disenio_1
             return this.horario.estaDisponibleEnFecha(fecha);
         }
 
-        public void inicializoLocal(double radioDeCercania, List<string> rubros)
+        public void inicializoLocal(double radioDeCercania, HashSet<string> rubros)
         {
             this.radioDeCercania = radioDeCercania;
             this.rubros = rubros;

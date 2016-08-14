@@ -114,6 +114,9 @@ namespace tp_disenio_1
         }
 
         public abstract bool matcheaBusquedaEspecifico(String texto);
+        
+        public void actualizarLocal(){}
+
 
 
     }

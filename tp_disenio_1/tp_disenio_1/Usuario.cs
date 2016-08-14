@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace tp_disenio_1
 {
-    class Usuario
+    public class Usuario
     {
     }
 }

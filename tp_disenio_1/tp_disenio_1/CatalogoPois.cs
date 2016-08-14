@@ -74,7 +74,7 @@ namespace tp_disenio_1
             this.agregarPoi(cgp);
         }
 
-        public void agregarLocal(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario, List<string> rubros, int radio)
+        public void agregarLocal(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario, HashSet<string> rubros, int radio)
         {
             Local local = new Local(latitud, longitud, nombre, direccion, horario, rubros, radio);
             this.agregarPoi(local);

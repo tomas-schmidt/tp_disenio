@@ -50,7 +50,7 @@ namespace tp_disenio_1
             List<Servicio> listaServicios = new List<Servicio>();
             listaServicios.Add(unServicio);
 
-            List<string> rubros = new List<string>();
+            HashSet<string> rubros = new HashSet<string>();
             rubros.Add("libreria");
 
             comuna2 = new CGP(5, 3, "comuna numero 2", "av cordoba 1000", lunesAVierner9a18, 2, listaServicios);

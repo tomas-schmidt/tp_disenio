@@ -17,6 +17,7 @@ namespace tp_disenio_1
 
         public override void ejecutar()
         {
+            fechaInicio = DateTime.Now;
             string nombre;
             List<string> palabrasClaves = new List<string>();
 
@@ -32,11 +33,24 @@ namespace tp_disenio_1
                 palabrasClaves.Add(substring);
             }
 
+            CatalogoPois catalogo = CatalogoPois.Instance();
        
-            /*if (catalogo.tieneA(nombre))
+            if (catalogo.tieneA(nombre))
             {
-                (catalogo.obtenerPoi(nombre)).actualizarLocal;
-            }*/
+                Poi poi;
+                poi = (catalogo.obtenerPoi(nombre));
+                poi.actualizarLocal();
+                resultado = true;
+               
+            }
+            else
+            {
+                resultado = false;
+            }
+
+            fechaInicio = DateTime.Now;
+            this.guardar();
+            
 
 
         }

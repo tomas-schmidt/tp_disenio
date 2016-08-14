@@ -8,14 +8,15 @@ namespace tp_disenio_1
 {
     public abstract class Comando
     {
-        DateTime fechaInicio;
-        DateTime fechaFin;
-        Usuario usuario;
-        bool resultado;
+        public DateTime fechaInicio;
+        public DateTime fechaFin;
+        public Usuario usuario = new Usuario();
+        public bool resultado;
 
         public void guardar()
         {
-
+            RepositorioComandos comandos = RepositorioComandos.Instance();
+            comandos.agregarComando(this);
         }
 
         public abstract void ejecutar();

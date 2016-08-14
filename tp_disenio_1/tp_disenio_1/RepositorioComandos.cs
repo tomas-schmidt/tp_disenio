@@ -25,6 +25,11 @@ namespace tp_disenio_1
             return instance;
         }
 
+        public void agregarComando(Comando comando)
+        {
+            comandos.Add(comando);
+        }
+
     }
 
 
