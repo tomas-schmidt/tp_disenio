@@ -15,5 +15,15 @@ namespace tp_disenio_1
         {
             acciones.Add(accion);
         }
+
+        public void removerAccion(string accion)
+        {
+            acciones.Remove(accion);
+        }
+
+        public string obtenerNombre()
+        {
+            return this.nombre;
+        }
     }
 }

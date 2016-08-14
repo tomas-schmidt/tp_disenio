@@ -20,6 +20,7 @@ namespace tp_disenio_1
             fechaInicio = DateTime.Now;
             try
             {
+                resultado = true;
                 string nombre;
                 HashSet<string> palabrasClaves = new HashSet<string>();
 
@@ -42,7 +43,7 @@ namespace tp_disenio_1
                     Poi poi;
                     poi = (catalogo.obtenerPoi(nombre));
                     poi.actualizarLocal();
-                    resultado = true;
+ 
 
                 }
                 else
@@ -60,7 +61,6 @@ namespace tp_disenio_1
 
                     PoiFactory pf = new PoiFactory();
                     pf.agregarLocal(0, 0, "", nombre, sinHorario, palabrasClaves, 0);
-                    resultado = true;
                 }
             }
             catch
@@ -70,8 +70,11 @@ namespace tp_disenio_1
 
             fechaFin = DateTime.Now;
             this.guardar();
-            
+        
+        }
 
+        public override void undo()
+        {
 
         }
     }
