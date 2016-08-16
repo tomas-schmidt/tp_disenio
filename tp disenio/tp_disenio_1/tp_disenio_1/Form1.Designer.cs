@@ -50,7 +50,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_abmPois = new System.Windows.Forms.Button();
-
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -247,7 +247,6 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
-
             // btn_abmPois
             // 
             this.btn_abmPois.Location = new System.Drawing.Point(174, 449);
@@ -257,16 +256,24 @@
             this.btn_abmPois.Text = "ABM POIS";
             this.btn_abmPois.UseVisualStyleBackColor = true;
             this.btn_abmPois.Click += new System.EventHandler(this.btn_abmPois_Click);
-
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(504, 449);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 23);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "Administrador";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_2);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 501);
-
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.btn_abmPois);
-
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -310,6 +317,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
 
         private System.Windows.Forms.Button btn_abmPois;
+        private System.Windows.Forms.Button button3;
 
 
     }

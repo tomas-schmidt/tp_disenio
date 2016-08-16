@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using System.Data.SqlClient;
+using tp_disenio_1.Reportes;
+using System.Data;
 
 namespace tp_disenio_1
 {
@@ -45,6 +48,9 @@ namespace tp_disenio_1
        
         public List<Poi> buscar(String texto)
         {
+            DateTime inicio = DateTime.Now;
+            int inicioSecond = inicio.Second;
+
             List<Poi> resultado = new List<Poi>();
             foreach (Poi poi in pois)
             {
@@ -53,6 +59,14 @@ namespace tp_disenio_1
                     resultado.Add(poi);
                 }
             }
+
+            DateTime fin = DateTime.Now;
+            int finSecond = fin.Second;
+            int tiempoConsulta = finSecond - inicioSecond;
+
+            Reporte reporte = new Reporte();
+            reporte.ProcesarConsulta(texto, resultado.Count(), tiempoConsulta, "usuario");            
+
             return resultado;
         }
 

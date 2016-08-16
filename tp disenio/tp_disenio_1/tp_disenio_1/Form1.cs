@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using tp_disenio_1.Reportes;
 
 namespace tp_disenio_1
 {
@@ -167,5 +168,18 @@ namespace tp_disenio_1
         {
 
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click_2(object sender, EventArgs e)
+        {
+            Reporte reporte = new Reporte();
+            reporte.Show();
+        }
+
+
     }
 }
