@@ -88,6 +88,7 @@
     <Compile Include="Comandos\BajaDePois.cs" />
     <Compile Include="Comandos\Comando.cs" />
     <Compile Include="Comandos\Multiple.cs" />
+    <Compile Include="Datos.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +97,12 @@
     </Compile>
     <Compile Include="HorarioDeAtencion.cs" />
     <Compile Include="Local.cs" />
+    <Compile Include="Logueador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logueador.Designer.cs">
+      <DependentUpon>Logueador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parada.cs" />
     <Compile Include="Poi.cs" />
     <Compile Include="ABM Pois\PoiFactory.cs" />
@@ -122,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logueador.resx">
+      <DependentUpon>Logueador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

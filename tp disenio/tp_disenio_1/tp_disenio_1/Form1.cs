@@ -26,10 +26,24 @@ namespace tp_disenio_1
         Local libreria;
 
         RepositorioComandos comandos = RepositorioComandos.Instance();
-        
+        public bool UsuarioLogueado = false;
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            //Tiro para adelante el Login. Juan
+            this.Hide();
+            Logueador login = new Logueador();
+            login.ShowDialog();
+            if (login.logueado == true)
+            {
+                this.Show();
+                UsuarioLogueado = true;
+            }
+            else
+            {
+                this.Close();
+
+            }
             ////////////////////////////// PRUEBAS /////////////////////////////////////////
 
             //creamos algunos objetos
