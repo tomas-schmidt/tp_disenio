@@ -11,9 +11,9 @@ using tp_disenio_1.Reportes;
 
 namespace tp_disenio_1
 {
-    public partial class Form1 : Form
+    public partial class BuscarPOI : Form
     {
-        public Form1()
+        public BuscarPOI()
         {
             InitializeComponent();
         }
@@ -28,22 +28,19 @@ namespace tp_disenio_1
         RepositorioComandos comandos = RepositorioComandos.Instance();
         public bool UsuarioLogueado = false;
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-            //Tiro para adelante el Login. Juan
-            this.Hide();
-            Logueador login = new Logueador();
-            login.ShowDialog();
-            if (login.logueado == true)
-            {
-                this.Show();
-                UsuarioLogueado = true;
-            }
-            else
-            {
-                this.Close();
-
-            }
+        {            
+            //this.Hide();                  NO HACE FALTA LOGUEAR ACÁ
+            //Logueador login = new Logueador();
+            //login.ShowDialog();
+            //if (login.logueado == true)
+            //{
+            //    this.Show();
+            //    UsuarioLogueado = true;
+            //}
+            //else
+            //{
+            //    this.Close();
+            //}
             ////////////////////////////// PRUEBAS /////////////////////////////////////////
 
             //creamos algunos objetos

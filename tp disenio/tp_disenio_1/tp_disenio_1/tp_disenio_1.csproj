@@ -11,6 +11,7 @@
     <AssemblyName>tp_disenio_1</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publicar\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -45,6 +45,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>tp_disenio_1.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GMap.NET.WindowsForms">
@@ -80,6 +86,12 @@
     <Compile Include="ABM Pois\ModificarPoi.Designer.cs">
       <DependentUpon>ModificarPoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrador.Designer.cs">
+      <DependentUpon>Administrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comandos\ActualizarLocales.cs" />
     <Compile Include="Banco.cs" />
     <Compile Include="CatalogoPois.cs" />
@@ -88,20 +100,32 @@
     <Compile Include="Comandos\BajaDePois.cs" />
     <Compile Include="Comandos\Comando.cs" />
     <Compile Include="Comandos\Multiple.cs" />
-    <Compile Include="Datos.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Logueo\Datos.cs" />
+    <Compile Include="BuscarPOI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BuscarPOI.Designer.cs">
+      <DependentUpon>BuscarPOI.cs</DependentUpon>
     </Compile>
     <Compile Include="HorarioDeAtencion.cs" />
-    <Compile Include="Local.cs" />
-    <Compile Include="Logueador.cs">
+    <Compile Include="Logueo\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logueador.Designer.cs">
+    <Compile Include="Logueo\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Local.cs" />
+    <Compile Include="Logueo\Logueador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logueo\Logueador.Designer.cs">
       <DependentUpon>Logueador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logueo\LogueadorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logueo\LogueadorUsuario.Designer.cs">
+      <DependentUpon>LogueadorUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Parada.cs" />
     <Compile Include="Poi.cs" />
@@ -127,11 +151,20 @@
     <EmbeddedResource Include="ABM Pois\AltaPoi.resx">
       <DependentUpon>AltaPoi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Administrador.resx">
+      <DependentUpon>Administrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Logueador.resx">
+    <EmbeddedResource Include="BuscarPOI.resx">
+      <DependentUpon>BuscarPOI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logueo\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logueo\Logueador.resx">
       <DependentUpon>Logueador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logueo\LogueadorUsuario.resx">
+      <DependentUpon>LogueadorUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

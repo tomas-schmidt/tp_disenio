@@ -101,7 +101,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.Name = "Logueador";
-            this.Text = "Logueador";
+            this.Text = "Loguin Administrador";
             this.Load += new System.EventHandler(this.Logueador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

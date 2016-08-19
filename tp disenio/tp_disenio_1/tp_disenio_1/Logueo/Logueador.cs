@@ -38,7 +38,8 @@ namespace tp_disenio_1
                 logueado = true;
 
                 MessageBox.Show(resultado, "Mensaje", MessageBoxButtons.OK);
-                this.Close();
+                Administrador ad =new Administrador();
+                ad.Show();                
             }
             else
             {
