@@ -22,10 +22,10 @@ namespace tp_disenio_1
 
             //esquema = System.Configuration.ConfigurationManager.AppSettings["esquema"];
 
-          
-            
-            
-            parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=Busquedas;USER ID=gd;Password=gd2016";
+
+
+
+        parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=ProyectoEscuela;USER ID=gd;Password=gd2016";  //PARA PC DE GABRIEL
 
         }
 

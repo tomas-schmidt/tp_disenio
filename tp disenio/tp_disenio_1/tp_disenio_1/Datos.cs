@@ -19,7 +19,8 @@ namespace tp_disenio_1
 
         public static void abrirConexion()
         {
-            conexion.ConnectionString = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=ProyectoEscuela; Integrated Security=Yes";
+     //       conexion.ConnectionString = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=ProyectoEscuela; Integrated Security=Yes"; // PARA PC DE JUAN
+            conexion.ConnectionString = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=ProyectoEscuela; Integrated Security=Yes"; // PARA PC DE GABRIEL
             conexion.Open();
         }
         public static void CerrarConexion()

@@ -1,6 +1,4 @@
 
---Crear BD "Busquedas"
-
 Create table Consultas
 (
 id INT IDENTITY(1,1) PRIMARY KEY,
