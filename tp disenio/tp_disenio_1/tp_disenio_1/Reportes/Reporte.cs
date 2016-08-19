@@ -26,14 +26,13 @@ namespace tp_disenio_1.Reportes
 
         }
 
-        public void ProcesarConsulta(string texto, int cantidadResultados, int tiempoConsulta, string usuario)
+        public void ProcesarConsulta(string texto, int cantidadResultados, int tiempoConsulta)
         {       
             BaseDeDatos bd = new BaseDeDatos();
             var spAgregarConsulta = bd.obtenerStoredProcedure("agregarConsulta");
             spAgregarConsulta.Parameters.Add("@texto", SqlDbType.VarChar).Value = texto;
             spAgregarConsulta.Parameters.Add("@cantidadResultados", SqlDbType.Int).Value = cantidadResultados;
-            spAgregarConsulta.Parameters.Add("@tiempoConsulta", SqlDbType.Int).Value = tiempoConsulta;
-            spAgregarConsulta.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario;
+            spAgregarConsulta.Parameters.Add("@tiempoConsulta", SqlDbType.Int).Value = tiempoConsulta;            
             spAgregarConsulta.ExecuteNonQuery();
             spAgregarConsulta.Connection.Close();
 

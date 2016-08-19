@@ -26,5 +26,21 @@ namespace tp_disenio_1.Logueo
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BaseDeDatos bd = new BaseDeDatos();
+            var spGuardarUsuario = bd.obtenerStoredProcedure("GuardarUsuario");
+            spGuardarUsuario.Parameters.Add("@usuario", SqlDbType.VarChar).Value = textBox1.Text;          
+            spGuardarUsuario.ExecuteNonQuery();
+            spGuardarUsuario.Connection.Close();                      
+            BuscarPOI fo2 = new BuscarPOI();
+            fo2.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

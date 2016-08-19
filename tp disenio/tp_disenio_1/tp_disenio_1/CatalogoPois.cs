@@ -65,7 +65,7 @@ namespace tp_disenio_1
             int tiempoConsulta = finSecond - inicioSecond;
 
             Reporte reporte = new Reporte();
-            reporte.ProcesarConsulta(texto, resultado.Count(), tiempoConsulta, "usuario");            
+            reporte.ProcesarConsulta(texto, resultado.Count(), tiempoConsulta);            
 
             return resultado;
         }
