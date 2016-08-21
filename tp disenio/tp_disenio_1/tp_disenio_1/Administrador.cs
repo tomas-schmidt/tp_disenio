@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using tp_disenio_1.Comandos;
 using tp_disenio_1.Reportes;
 
 namespace tp_disenio_1
@@ -34,6 +35,13 @@ namespace tp_disenio_1
         {
             BuscarPOI fo = new BuscarPOI();
             fo.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            PruebaComandos pc = new PruebaComandos();
+            pc.Show();
+
         }
     }
 }

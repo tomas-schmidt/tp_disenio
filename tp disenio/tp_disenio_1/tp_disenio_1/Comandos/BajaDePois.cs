@@ -11,6 +11,12 @@ namespace tp_disenio_1.Comandos
         private DateTime fechaDeBaja;
         private string valorBusqueda;
 
+        public BajaDePois(string valorBusqueda, DateTime fechaDeBaja)
+        {
+            this.fechaDeBaja = fechaDeBaja;
+            this.valorBusqueda = valorBusqueda;
+        }
+
         public override void ejecutar()
         {
             fechaInicio = fechaDeBaja;

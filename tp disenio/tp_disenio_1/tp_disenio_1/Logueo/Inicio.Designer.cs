@@ -61,6 +61,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Inicio";
             this.Text = "Inicio";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.ResumeLayout(false);
 
         }

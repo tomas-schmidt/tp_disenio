@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace tp_disenio_1
 {
-    class ActualizarLocales: Comando
+    public class ActualizarLocales: Comando
     {
         private string texto;
 
-        private ActualizarLocales(string texto)
+        public ActualizarLocales(string texto)
         {
             this.texto = texto;
         }

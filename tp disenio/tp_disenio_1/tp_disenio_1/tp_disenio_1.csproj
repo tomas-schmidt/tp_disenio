@@ -99,6 +99,12 @@
     <Compile Include="Comandos\AgregarAcciones.cs" />
     <Compile Include="Comandos\BajaDePois.cs" />
     <Compile Include="Comandos\Comando.cs" />
+    <Compile Include="Comandos\PruebaComandos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Comandos\PruebaComandos.Designer.cs">
+      <DependentUpon>PruebaComandos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comandos\Multiple.cs" />
     <Compile Include="Logueo\Datos.cs" />
     <Compile Include="BuscarPOI.cs">
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuscarPOI.resx">
       <DependentUpon>BuscarPOI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comandos\PruebaComandos.resx">
+      <DependentUpon>PruebaComandos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Logueo\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

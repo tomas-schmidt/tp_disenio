@@ -26,8 +26,15 @@ namespace tp_disenio_1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LogueadorUsuario lo2 = new LogueadorUsuario();
-            lo2.Show();
+            BuscarPOI bp = new BuscarPOI();
+            bp.Show();
+            //LogueadorUsuario lo2 = new LogueadorUsuario();
+            //lo2.Show();
+        }
+
+        private void Inicio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
