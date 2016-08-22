@@ -44,7 +44,7 @@ namespace tp_disenio_1
                     poi = (catalogo.obtenerPoi(nombre));
                     poi.actualizarLocal();*/
 
-                    catalogo.obtenerPoi(nombre).actualizarLocal();
+                    (catalogo.obtenerPoi(nombre)).actualizarLocal(palabrasClaves);
 
                 }
                 else
