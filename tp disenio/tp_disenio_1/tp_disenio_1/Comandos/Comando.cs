@@ -22,5 +22,10 @@ namespace tp_disenio_1
         public abstract void ejecutar();
         public abstract void undo();
 
+        public bool resultadoComando ()
+        {
+            return this.resultado;
+        }
+
     }
 }

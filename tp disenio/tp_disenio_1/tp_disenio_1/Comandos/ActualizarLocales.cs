@@ -40,10 +40,11 @@ namespace tp_disenio_1
 
                 if (catalogo.tieneA(nombre))
                 {
-                    Poi poi;
+                    /*Poi poi;
                     poi = (catalogo.obtenerPoi(nombre));
-                    poi.actualizarLocal();
- 
+                    poi.actualizarLocal();*/
+
+                    catalogo.obtenerPoi(nombre).actualizarLocal();
 
                 }
                 else

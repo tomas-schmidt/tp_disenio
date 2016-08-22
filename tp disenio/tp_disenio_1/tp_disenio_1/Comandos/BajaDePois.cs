@@ -35,6 +35,7 @@ namespace tp_disenio_1.Comandos
                 {
                     catalogo.eliminarPoi(poi);
                 }
+ 
             }
 
             catch

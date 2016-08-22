@@ -22,6 +22,9 @@ namespace tp_disenio_1.Comandos
             ActualizarLocales al =  new ActualizarLocales(txt_actualizarLocales.Text);
             al.ejecutar();
 
+            bool res = al.resultadoComando();
+
+            MessageBox.Show(Convert.ToString(res));
 
         }
 
@@ -29,6 +32,9 @@ namespace tp_disenio_1.Comandos
         {
             BajaDePois bdp = new BajaDePois(txt_bajaPoi.Text, dateTimePicker1.Value);
             bdp.ejecutar();
+            bool res = bdp.resultadoComando();
+
+            MessageBox.Show(Convert.ToString(res));
 
         }
 
