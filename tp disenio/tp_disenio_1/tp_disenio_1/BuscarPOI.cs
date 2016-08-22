@@ -17,7 +17,9 @@ namespace tp_disenio_1
         {
             InitializeComponent();
         }
-        CatalogoPois catalogo = CatalogoPois.Instance();
+
+        //CatalogoPois catalogo = CatalogoPois.Instance();
+        CatalogoPois catalogo;
         HorarioDeAtencion lunesAVierner9a18;
         Parada parada114;
         Servicio unServicio;
@@ -44,6 +46,9 @@ namespace tp_disenio_1
             ////////////////////////////// PRUEBAS /////////////////////////////////////////
 
             //creamos algunos objetos
+
+            catalogo = new CatalogoPois();
+
 
             lunesAVierner9a18 = new HorarioDeAtencion(new Tuple<int, int>[]{
                 new Tuple<int,int>(0,0),
@@ -83,7 +88,19 @@ namespace tp_disenio_1
         private void button3_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            List<Poi> listaPois = catalogo.buscar(txt_TextoBuscado.Text);            
+
+            DateTime inicio = DateTime.Now;
+            int inicioSecond = inicio.Second;
+
+            List<Poi> listaPois = catalogo.buscar(txt_TextoBuscado.Text);
+
+            DateTime fin = DateTime.Now;
+            int finSecond = fin.Second;
+            int tiempoConsulta = inicioSecond - finSecond;
+
+            Reporte reporte = new Reporte();
+            reporte.ProcesarConsulta(txt_TextoBuscado.Text, listaPois.Count(), tiempoConsulta); 
+
             foreach (Poi poi in listaPois)
             {
                 int n = dataGridView1.Rows.Add();

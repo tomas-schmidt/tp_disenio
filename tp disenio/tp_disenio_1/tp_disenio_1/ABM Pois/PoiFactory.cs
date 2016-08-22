@@ -8,7 +8,8 @@ namespace tp_disenio_1
 {
     class PoiFactory
     {
-        CatalogoPois catalogo = CatalogoPois.Instance();
+        //CatalogoPois catalogo = CatalogoPois.Instance();
+        CatalogoPois catalogo = new CatalogoPois(); 
 
 
         public void agregarParada(double latitud, double longitud, string direccion, string nombre, HorarioDeAtencion horario, string numero)
