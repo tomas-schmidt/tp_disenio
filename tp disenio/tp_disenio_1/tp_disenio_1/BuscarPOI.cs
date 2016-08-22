@@ -83,7 +83,7 @@ namespace tp_disenio_1
         private void button3_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            List<Poi> listaPois = catalogo.buscar(txt_TextoBuscado.Text);
+            List<Poi> listaPois = catalogo.buscar(txt_TextoBuscado.Text);            
             foreach (Poi poi in listaPois)
             {
                 int n = dataGridView1.Rows.Add();
@@ -92,6 +92,7 @@ namespace tp_disenio_1
                 dataGridView1.Rows[n].Cells[2].Value = poi.obtenerLatitud();
                 dataGridView1.Rows[n].Cells[3].Value = poi.obtenerLongitud();
             }
+            listaPois.Clear();
             txt_TextoBuscado.Clear();
 
         }

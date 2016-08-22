@@ -16,6 +16,7 @@ namespace tp_disenio_1
 
         private CatalogoPois()
         {
+            pois.Clear();
         }
 
         public static CatalogoPois Instance()
@@ -59,7 +60,7 @@ namespace tp_disenio_1
                     resultado.Add(poi);
                 }
             }
-
+            pois.Clear();                       //Importante borrar para que no acumulen resultados
             DateTime fin = DateTime.Now;
             int finSecond = fin.Second;
             int tiempoConsulta = finSecond - inicioSecond;

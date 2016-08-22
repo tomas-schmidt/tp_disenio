@@ -22,8 +22,8 @@ namespace tp_disenio_1
 
         public static void abrirConexion()
         {      
-           conexion.ConnectionString = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=TP_Diseño; Integrated Security=Yes"; // PARA PC DE JUAN
-      //      conexion.ConnectionString = "Server=localhost\\SQLSERVER2012;Database=ProyectoEscuela;USER ID=gd;Password=gd2016"; // PARA PC DE GABRIEL
+       //    conexion.ConnectionString = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=TP_Diseño; Integrated Security=Yes"; // PARA PC DE JUAN
+            conexion.ConnectionString = "Server=localhost\\SQLSERVER2012;Database=ProyectoEscuela;USER ID=gd;Password=gd2016"; // PARA PC DE GABRIEL
             conexion.Open();
         }
         public static void CerrarConexion()
