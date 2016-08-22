@@ -24,7 +24,7 @@ namespace tp_disenio_1
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {            
             IniciarSesion();
         }
         public void IniciarSesion()
@@ -38,6 +38,11 @@ namespace tp_disenio_1
                 logueado = true;
 
                 MessageBox.Show(resultado, "Mensaje", MessageBoxButtons.OK);
+                BaseDeDatos bd = new BaseDeDatos();
+                var spGuardarUsuarioSesionActual = bd.obtenerStoredProcedure("GuardarUsuarioSesionActual");
+                spGuardarUsuarioSesionActual.Parameters.Add("@usuario", SqlDbType.VarChar).Value = txtNombre.Text;
+                spGuardarUsuarioSesionActual.ExecuteNonQuery();
+                spGuardarUsuarioSesionActual.Connection.Close(); 
                 Administrador ad =new Administrador();
                 ad.Show();                
             }
@@ -55,6 +60,11 @@ namespace tp_disenio_1
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

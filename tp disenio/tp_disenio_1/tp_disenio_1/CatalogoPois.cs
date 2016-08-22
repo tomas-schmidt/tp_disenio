@@ -12,20 +12,21 @@ namespace tp_disenio_1
     class CatalogoPois
     {
         protected List<Poi> pois = new List<Poi>();
-        private static CatalogoPois instance;
+        //private static CatalogoPois instance;
 
-        private CatalogoPois()
-        {
-        }
+        //private CatalogoPois()
+        //{
+            
+        //}
 
-        public static CatalogoPois Instance()
-        {
-            if (instance == null)
-            {
-                instance = new CatalogoPois();
-            }
-            return instance;
-        }
+        //public static CatalogoPois Instance()
+        //{
+        //    if (instance == null)
+        //    {
+        //        instance = new CatalogoPois();
+        //    }
+        //    return instance;
+        //}
 
         public void agregarPoi(Poi poiNuevo)
         {
@@ -48,9 +49,7 @@ namespace tp_disenio_1
        
         public List<Poi> buscar(String texto)
         {
-            DateTime inicio = DateTime.Now;
-            int inicioSecond = inicio.Second;
-
+            
             List<Poi> resultado = new List<Poi>();
             foreach (Poi poi in pois)
             {
@@ -58,17 +57,12 @@ namespace tp_disenio_1
                 {
                     resultado.Add(poi);
                 }
-            }
-
-            DateTime fin = DateTime.Now;
-            int finSecond = fin.Second;
-            int tiempoConsulta = finSecond - inicioSecond;
-
-            Reporte reporte = new Reporte();
-            reporte.ProcesarConsulta(texto, resultado.Count(), tiempoConsulta);            
+            }                            
 
             return resultado;
         }
+
+
 
         
 

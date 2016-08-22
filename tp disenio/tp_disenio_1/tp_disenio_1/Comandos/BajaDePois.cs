@@ -26,7 +26,8 @@ namespace tp_disenio_1.Comandos
                 resultado = true;
                 List<Poi> poisAEliminar = new List<Poi>();
 
-                CatalogoPois catalogo = CatalogoPois.Instance();
+                //CatalogoPois catalogo = CatalogoPois.Instance();
+                CatalogoPois catalogo = new CatalogoPois();
 
                 poisAEliminar = catalogo.buscar(valorBusqueda);
 

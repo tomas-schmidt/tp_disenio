@@ -36,7 +36,8 @@ namespace tp_disenio_1
                     palabrasClaves.Add(substring);
                 }
 
-                CatalogoPois catalogo = CatalogoPois.Instance();
+                //CatalogoPois catalogo = CatalogoPois.Instance();
+                CatalogoPois catalogo = new CatalogoPois();
 
                 if (catalogo.tieneA(nombre))
                 {

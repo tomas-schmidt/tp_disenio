@@ -15,10 +15,6 @@ namespace tp_disenio_1
 
         public BaseDeDatos()
         {
-            //parametrosConexionDB = "Server=" + System.Configuration.ConfigurationManager.AppSettings["server"] + ";"
-            //    + "Database=" + System.Configuration.ConfigurationManager.AppSettings["database"] + ";"
-            //    + "User ID=" + System.Configuration.ConfigurationManager.AppSettings["id"] + ";"
-            //    + "Password=" + System.Configuration.ConfigurationManager.AppSettings["password"];
 
             //esquema = System.Configuration.ConfigurationManager.AppSettings["esquema"];
 

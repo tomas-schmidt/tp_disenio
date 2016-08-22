@@ -1,0 +1,11 @@
+DROP PROCEDURE loguear
+DROP PROCEDURE agregarConsulta
+DROP PROCEDURE GuardarUsuarioSesionActual
+DROP PROCEDURE cantidadDeBusquedasPorFecha
+DROP PROCEDURE resultadosParciales
+DROP PROCEDURE resultadosTotales
+
+
+DROP TABLE Usuarios
+DROP TABLE Consultas
+DROP TABLE UsuarioSesionActual
