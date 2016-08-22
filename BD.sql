@@ -1,9 +1,10 @@
 CREATE TABLE Usuarios
 (
-Nombre VARCHAR(50) ,
+Nombre VARCHAR(50) PRIMARY KEY ,
 Contraseña VARCHAR(50),
 Tipo_Admin INT,
-NroUsuario INT IDENTITY (1,1) PRIMARY KEY
+Mail VARCHAR(50),
+TiempoMaxBusqueda INT  
 )
 GO
 
@@ -11,7 +12,7 @@ GO
 
 INSERT INTO Usuarios 
 (Nombre,Contraseña,Tipo_Admin)
-values('usuario1','123',1)
+values('usuario1','123',1,'gaby_filipe@hotmail.com',5)
 
 CREATE TABLE UsuarioSesionActual
 (

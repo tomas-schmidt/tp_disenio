@@ -62,6 +62,8 @@ namespace tp_disenio_1
             return resultado;
         }
 
+
+
         
 
         public bool tieneA(string nombre)

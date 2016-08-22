@@ -13,12 +13,10 @@ namespace tp_disenio_1.Reportes
 {
     public partial class Reporte : Form
     {
-        private int tiempoMaxBusqueda;
-
+        
         public Reporte()
         {
-            InitializeComponent();
-            tiempoMaxBusqueda = 5;            
+            InitializeComponent();                        
         }
 
         private void Reportes_Load(object sender, EventArgs e)
@@ -35,12 +33,6 @@ namespace tp_disenio_1.Reportes
             spAgregarConsulta.Parameters.Add("@tiempoConsulta", SqlDbType.Int).Value = tiempoConsulta;            
             spAgregarConsulta.ExecuteNonQuery();
             spAgregarConsulta.Connection.Close();
-
-            if (tiempoConsulta > tiempoMaxBusqueda)
-            {
-            Mail mail = new Mail();
-            mail.enviarMail(texto);
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
