@@ -11,7 +11,7 @@ GO
 --AGREGO USUARIO ADMINISTRADOR
 
 INSERT INTO Usuarios 
-(Nombre,Contraseña,Tipo_Admin)
+(Nombre,Contraseña,Tipo_Admin,Mail,TiempoMaxBusqueda)
 values('usuario1','123',1,'gaby_filipe@hotmail.com',5)
 
 CREATE TABLE UsuarioSesionActual
