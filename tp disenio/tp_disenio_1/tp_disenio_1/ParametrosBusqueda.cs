@@ -26,6 +26,13 @@ namespace tp_disenio_1
             BaseDeDatos bd = new BaseDeDatos();
             var spobtenerParametrosBusqueda = bd.obtenerStoredProcedure("obtenerParametrosBusqueda");
             spobtenerParametrosBusqueda.Parameters.Add("@mail", SqlDbType.VarChar).Value = mail;
+
+            //SqlParameter parameter = new SqlParameter();
+            //parameter.ParameterName = "@CategoryName";
+            parameter.SqlDbType = SqlDbType.NVarChar;
+            spobtenerParametrosBusqueda.Direction = ParameterDirection.Input;
+            parameter.Value = categoryName;
+
             spobtenerParametrosBusqueda.Parameters.Add("@tiempoMaxBusqueda", SqlDbType.Int).Value = tiempoMaxBusqueda;
             spobtenerParametrosBusqueda.ExecuteNonQuery();
             spobtenerParametrosBusqueda.Connection.Close();
