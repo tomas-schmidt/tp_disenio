@@ -11,7 +11,7 @@ GO
 --AGREGO USUARIO ADMINISTRADOR
 
 INSERT INTO Usuarios 
-(Nombre,Contraseña,Tipo_Admin)
+(Nombre,Contraseña,Tipo_Admin,Mail,TiempoMaxBusqueda)
 values('usuario1','123',1,'gaby_filipe@hotmail.com',5)
 
 CREATE TABLE UsuarioSesionActual
@@ -89,4 +89,24 @@ GROUP BY usuario
 ORDER BY usuario;
 GO 
 
+CREATE PROCEDURE guardarParametrosBusqueda
+	@mail varchar(50),
+	@tiempoMaxBusqueda INT
+AS
+DECLARE @usuario varchar(50)
+SELECT @usuario=Nombre from UsuarioSesionActual 
+UPDATE Usuarios
+set Mail = @mail,
+TiempoMaxBusqueda=@tiempoMaxBusqueda
+WHERE Nombre=@usuario 
+GO 
 
+CREATE PROCEDURE obtenerParametrosBusqueda
+	@mail varchar(50) OUTPUT,
+	@tiempoMaxBusqueda INT OUTPUT
+AS
+DECLARE @usuario varchar(50)
+SELECT @usuario=Nombre from UsuarioSesionActual 
+SELECT @mail=Mail,@tiempoMaxBusqueda=TiempoMaxBusqueda from Usuarios WHERE Nombre=@usuario
+RETURN 
+GO   

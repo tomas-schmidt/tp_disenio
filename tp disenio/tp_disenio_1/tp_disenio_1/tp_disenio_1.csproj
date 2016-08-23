@@ -134,6 +134,12 @@
       <DependentUpon>LogueadorUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Parada.cs" />
+    <Compile Include="ParametrosBusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParametrosBusqueda.Designer.cs">
+      <DependentUpon>ParametrosBusqueda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Poi.cs" />
     <Compile Include="ABM Pois\PoiFactory.cs" />
     <Compile Include="Program.cs" />
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Logueo\LogueadorUsuario.resx">
       <DependentUpon>LogueadorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParametrosBusqueda.resx">
+      <DependentUpon>ParametrosBusqueda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
