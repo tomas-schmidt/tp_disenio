@@ -43,5 +43,11 @@ namespace tp_disenio_1
             pc.Show();
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ParametrosBusqueda pb = new ParametrosBusqueda();
+            pb.Show();
+        }
     }
 }
