@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,8 @@ using System.Windows.Forms;
 using tp_disenio_1.Reportes;
 using System.Net;
 using System.Net.Mail;
+using System.Diagnostics;
+
 
 namespace tp_disenio_1
 {
@@ -91,21 +94,22 @@ namespace tp_disenio_1
         {
             dataGridView1.Rows.Clear();
 
-            DateTime inicio = DateTime.Now;
-            int inicioSecond = inicio.Second;
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
 
             List<Poi> listaPois = catalogo.buscar(txt_TextoBuscado.Text);
 
-            DateTime fin = DateTime.Now;
-            int finSecond = fin.Second;
-            int tiempoConsulta = inicioSecond - finSecond;
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            // Format and display the TimeSpan value.
+            int tiempoConsulta = ts.Milliseconds;         
 
             Reporte reporte = new Reporte();
             reporte.ProcesarConsulta(txt_TextoBuscado.Text, listaPois.Count(), tiempoConsulta);
 
-            if (tiempoConsulta>5)
+            if (tiempoConsulta>2)
             {
-            //this.EnviarMail();
+                this.EnviarMail(txt_TextoBuscado.Text);
             }
 
             foreach (Poi poi in listaPois)
@@ -123,38 +127,43 @@ namespace tp_disenio_1
 
 
 
-        //public void EnviarMail()
-        //{
-        //    MailMessage email = new MailMessage();
-        //    email.To.Add(new MailAddress(mailAdmin));
-        //    email.From = new MailAddress("gabriel_prueba00@hotmail.com");
-        //    email.Subject = "Demora en la busqueda ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
-        //    email.Body = "La busqueda del texto:" + textoDemorado + "esta tardando mas de lo esperado.";
-        //    email.IsBodyHtml = true;
-        //    email.Priority = MailPriority.Normal;
+        public void EnviarMail(string textoDemorado)
+        {
 
-        //    SmtpClient smtp = new SmtpClient();
-        //    smtp.Host = "smtp.outlook.com";
-        //    smtp.Port = 587;
-        //    smtp.EnableSsl = false;
-        //    smtp.UseDefaultCredentials = false;
-        //    smtp.Credentials = new NetworkCredential("gabriel_prueba00@hotmail.com", "123prueba");
+            MailMessage email = new MailMessage();
+            email.To.Add(new MailAddress("gaby_filipe@hotmail.com"));    
+            email.From = new MailAddress("gabriel_prueba00@hotmail.com");
+            email.Subject = "Demora en la busqueda ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
+            email.Body = "La busqueda del texto:" + textoDemorado + "esta tardando mas de lo esperado.";
+            email.IsBodyHtml = true;
+            email.Priority = MailPriority.High;
 
-        //    string output = null;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp-mail.outlook.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new NetworkCredential("gabriel_prueba00@hotmail.com", "123prueba");
 
-        //    try
-        //    {
-        //        smtp.Send(email);
-        //        email.Dispose();
-        //        output = "Corre electrónico fue enviado satisfactoriamente.";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        output = "Error enviando correo electrónico: " + ex.Message;
-        //    }
+            string output = null;
 
-        //    Console.WriteLine(output);
-        //}
+            try
+            {
+                smtp.Send(email);
+                email.Dispose();
+                output = "Corre electrónico fue enviado satisfactoriamente.";
+            }
+            catch (Exception ex)
+            {
+                output = "Error enviando correo electrónico: " + ex.Message;
+            }
+
+            MessageBox.Show(output, "My Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+         
+
+
+        }
 
 
 
@@ -164,7 +173,7 @@ namespace tp_disenio_1
             List<Poi> listaPois = catalogo.lista();
             foreach (Poi poi in listaPois)
             {
-                if (poi.estaCercaDe(Convert.ToDouble(txt_latitud.Text), Convert.ToDouble(txt_longitud.Text)))
+                //if (poi.estaCercaDe(Convert.ToDouble(txt_latitud.Text), Convert.ToDouble(txt_longitud.Text)))
                 {
                     int n = dataGridView1.Rows.Add();
                     dataGridView1.Rows[n].Cells[0].Value = poi.obtenerNombre();
@@ -251,6 +260,11 @@ namespace tp_disenio_1
         {
             Reporte reporte = new Reporte();
             reporte.Show();
+        }
+
+        private void button3_Click_3(object sender, EventArgs e)
+        {
+            this.EnviarMail("114");
         }
 
 

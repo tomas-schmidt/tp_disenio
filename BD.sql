@@ -101,4 +101,11 @@ TiempoMaxBusqueda=@tiempoMaxBusqueda
 WHERE Nombre=@usuario 
 GO 
 
+CREATE PROCEDURE obtenerParametrosBusqueda
+	@mail varchar(50) OUTPUT,
+	@tiempoMaxBusqueda INT OUTPUT
+AS
+SELECT TOP 1 @mail=Mail,@tiempoMaxBusqueda=TiempoMaxBusqueda from Usuarios
+RETURN 
+GO   
 

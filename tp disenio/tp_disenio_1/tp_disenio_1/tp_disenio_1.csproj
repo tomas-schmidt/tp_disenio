@@ -146,7 +146,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Comandos\RepositorioComandos.cs" />
     <Compile Include="Reportes\BaseDeDatos.cs" />
-    <Compile Include="Reportes\Mail.cs" />
     <Compile Include="Reportes\Reporte.cs">
       <SubType>Form</SubType>
     </Compile>

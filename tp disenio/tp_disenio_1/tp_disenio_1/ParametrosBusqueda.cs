@@ -39,7 +39,7 @@ namespace tp_disenio_1
             BaseDeDatos bd = new BaseDeDatos();
             var spguardarParametrosBusqueda = bd.obtenerStoredProcedure("guardarParametrosBusqueda");
             spguardarParametrosBusqueda.Parameters.Add("@mail", SqlDbType.VarChar).Value = textBox1.Text;
-            spguardarParametrosBusqueda.Parameters.Add("@tiempoMaxBusqueda", SqlDbType.Int).Value = textBox2.Text;            
+            spguardarParametrosBusqueda.Parameters.Add("@tiempoMaxBusqueda", SqlDbType.VarChar).Value = textBox2.Text;            
             spguardarParametrosBusqueda.ExecuteNonQuery();
             spguardarParametrosBusqueda.Connection.Close();
             this.Close();
