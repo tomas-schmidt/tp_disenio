@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,7 @@ namespace tp_disenio_1
 {
     public partial class ParametrosBusqueda : Form
     {
-        private string mail;
-	    private int tiempoMaxBusqueda;  
-
+        
         public ParametrosBusqueda()
         {
             InitializeComponent();
@@ -23,22 +22,6 @@ namespace tp_disenio_1
         private void ParametrosBusqueda_Load(object sender, EventArgs e)
         {
 
-            BaseDeDatos bd = new BaseDeDatos();
-            var spobtenerParametrosBusqueda = bd.obtenerStoredProcedure("obtenerParametrosBusqueda");
-            spobtenerParametrosBusqueda.Parameters.Add("@mail", SqlDbType.VarChar).Value = mail;
-
-            //SqlParameter parameter = new SqlParameter();
-            //parameter.ParameterName = "@CategoryName";
-            parameter.SqlDbType = SqlDbType.NVarChar;
-            spobtenerParametrosBusqueda.Direction = ParameterDirection.Input;
-            parameter.Value = categoryName;
-
-            spobtenerParametrosBusqueda.Parameters.Add("@tiempoMaxBusqueda", SqlDbType.Int).Value = tiempoMaxBusqueda;
-            spobtenerParametrosBusqueda.ExecuteNonQuery();
-            spobtenerParametrosBusqueda.Connection.Close();
-
-            textBox1.Text= mail;
-            textBox2.Text = tiempoMaxBusqueda.ToString();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -49,6 +32,17 @@ namespace tp_disenio_1
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BaseDeDatos bd = new BaseDeDatos();
+            var spguardarParametrosBusqueda = bd.obtenerStoredProcedure("guardarParametrosBusqueda");
+            spguardarParametrosBusqueda.Parameters.Add("@mail", SqlDbType.VarChar).Value = textBox1.Text;
+            spguardarParametrosBusqueda.Parameters.Add("@tiempoMaxBusqueda", SqlDbType.Int).Value = textBox2.Text;            
+            spguardarParametrosBusqueda.ExecuteNonQuery();
+            spguardarParametrosBusqueda.Connection.Close();
+            this.Close();
         }
     }
 }
