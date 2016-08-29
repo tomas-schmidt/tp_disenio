@@ -109,7 +109,7 @@ namespace tp_disenio_1
 
             if (tiempoConsulta>2)
             {
-                this.EnviarMail(txt_TextoBuscado.Text);
+                //this.EnviarMail(txt_TextoBuscado.Text);
             }
 
             foreach (Poi poi in listaPois)
@@ -158,7 +158,7 @@ namespace tp_disenio_1
                 output = "Error enviando correo electrónico: " + ex.Message;
             }
 
-            MessageBox.Show(output, "My Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            //MessageBox.Show(output, "My Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
          
 
