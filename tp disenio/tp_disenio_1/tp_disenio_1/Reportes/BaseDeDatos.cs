@@ -5,6 +5,8 @@ using System.Text;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.Sql;
+
 
 namespace tp_disenio_1
 {
@@ -12,6 +14,7 @@ namespace tp_disenio_1
     {
         public String parametrosConexionDB;
         
+
 
         public BaseDeDatos()
         {
@@ -21,7 +24,7 @@ namespace tp_disenio_1
 
 
            // parametrosConexionDB = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=TP_Diseño; Integrated Security=Yes"; // PARA PC DE JUAN
-        parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=ProyectoEscuela;USER ID=gd;Password=gd2016";  //PARA PC DE GABRIEL
+            parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=ProyectoEscuela;USER ID=gd;Password=gd2016";  //PARA PC DE GABRIEL
       //  parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=GD1C2016;USER ID=gd;Password=gd2016";  //PARA PC DE TOMAS
 
 

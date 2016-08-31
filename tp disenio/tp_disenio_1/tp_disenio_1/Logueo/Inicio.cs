@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using tp_disenio_1.Logueo;
+using System.Data.Sql;
 
 namespace tp_disenio_1
 {
@@ -35,6 +36,7 @@ namespace tp_disenio_1
         private void Inicio_Load(object sender, EventArgs e)
         {
 
-        }
+        }       
+        
     }
 }
