@@ -21,7 +21,16 @@ namespace tp_disenio_1
 
         private void ParametrosBusqueda_Load(object sender, EventArgs e)
         {
-
+            BaseDeDatos bd = new BaseDeDatos();
+            var spObtenerParametrosBusqueda = bd.obtenerStoredProcedure("obtenerParametrosBusqueda");
+            var reader = spObtenerParametrosBusqueda.ExecuteReader();
+            reader.Read();
+            string mail = reader[0].ToString();
+            //reader.Read();
+            int tiempoMaxBusqueda = Convert.ToInt32(reader[1]);
+            textBox1.Text = mail;
+            textBox2.Text = Convert.ToString(tiempoMaxBusqueda); 
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

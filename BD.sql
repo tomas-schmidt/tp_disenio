@@ -102,10 +102,7 @@ WHERE Nombre=@usuario
 GO 
 
 CREATE PROCEDURE obtenerParametrosBusqueda
-	@mail varchar(50) OUTPUT,
-	@tiempoMaxBusqueda INT OUTPUT
 AS
-SELECT TOP 1 @mail=Mail,@tiempoMaxBusqueda=TiempoMaxBusqueda from Usuarios
-RETURN 
+SELECT u2.Mail,u2.TiempoMaxBusqueda from Usuarios u2 where u2.Nombre=(SELECT u.Nombre from UsuarioSesionActual u) 
 GO   
 

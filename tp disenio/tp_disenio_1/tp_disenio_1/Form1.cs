@@ -2,29 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using tp_disenio_1.Reportes;
-using System.Net;
-using System.Net.Mail;
-using System.Diagnostics;
-
 
 namespace tp_disenio_1
 {
-    public partial class BuscarPOI : Form
+    public partial class Form1 : Form
     {
-        public BuscarPOI()
+        public Form1()
         {
             InitializeComponent();
         }
-
-        //CatalogoPois catalogo = CatalogoPois.Instance();
-        CatalogoPois catalogo;
+        CatalogoPois catalogo = CatalogoPois.Instance();
         HorarioDeAtencion lunesAVierner9a18;
         Parada parada114;
         Servicio unServicio;
@@ -33,27 +26,13 @@ namespace tp_disenio_1
         Local libreria;
 
         RepositorioComandos comandos = RepositorioComandos.Instance();
-        public bool UsuarioLogueado = false;
+        
         private void Form1_Load(object sender, EventArgs e)
-        {            
-            //this.Hide();                  NO HACE FALTA LOGUEAR ACÁ
-            //Logueador login = new Logueador();
-            //login.ShowDialog();
-            //if (login.logueado == true)
-            //{
-            //    this.Show();
-            //    UsuarioLogueado = true;
-            //}
-            //else
-            //{
-            //    this.Close();
-            //}
+        {
+
             ////////////////////////////// PRUEBAS /////////////////////////////////////////
 
             //creamos algunos objetos
-
-            catalogo = new CatalogoPois();
-
 
             lunesAVierner9a18 = new HorarioDeAtencion(new Tuple<int, int>[]{
                 new Tuple<int,int>(0,0),
@@ -93,25 +72,7 @@ namespace tp_disenio_1
         private void button3_Click(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
             List<Poi> listaPois = catalogo.buscar(txt_TextoBuscado.Text);
-
-            stopWatch.Stop();
-            TimeSpan ts = stopWatch.Elapsed;
-            // Format and display the TimeSpan value.
-            int tiempoConsulta = ts.Milliseconds;         
-
-            Reporte reporte = new Reporte();
-            reporte.ProcesarConsulta(txt_TextoBuscado.Text, listaPois.Count(), tiempoConsulta);
-
-            if (tiempoConsulta>2)
-            {
-                //this.EnviarMail(txt_TextoBuscado.Text);
-            }
-
             foreach (Poi poi in listaPois)
             {
                 int n = dataGridView1.Rows.Add();
@@ -120,52 +81,9 @@ namespace tp_disenio_1
                 dataGridView1.Rows[n].Cells[2].Value = poi.obtenerLatitud();
                 dataGridView1.Rows[n].Cells[3].Value = poi.obtenerLongitud();
             }
-            listaPois.Clear();
             txt_TextoBuscado.Clear();
 
         }
-
-
-
-        public void EnviarMail(string textoDemorado)
-        {
-
-            MailMessage email = new MailMessage();
-            email.To.Add(new MailAddress("gaby_filipe@hotmail.com"));    
-            email.From = new MailAddress("gabriel_prueba00@hotmail.com");
-            email.Subject = "Demora en la busqueda ( " + DateTime.Now.ToString("dd / MMM / yyy hh:mm:ss") + " ) ";
-            email.Body = "La busqueda del texto:" + textoDemorado + "esta tardando mas de lo esperado.";
-            email.IsBodyHtml = true;
-            email.Priority = MailPriority.High;
-
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp-mail.outlook.com";
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new NetworkCredential("gabriel_prueba00@hotmail.com", "123prueba");
-
-            string output = null;
-
-            try
-            {
-                smtp.Send(email);
-                email.Dispose();
-                output = "Corre electrónico fue enviado satisfactoriamente.";
-            }
-            catch (Exception ex)
-            {
-                output = "Error enviando correo electrónico: " + ex.Message;
-            }
-
-            //MessageBox.Show(output, "My Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-
-         
-
-
-        }
-
-
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -173,7 +91,7 @@ namespace tp_disenio_1
             List<Poi> listaPois = catalogo.lista();
             foreach (Poi poi in listaPois)
             {
-                //if (poi.estaCercaDe(Convert.ToDouble(txt_latitud.Text), Convert.ToDouble(txt_longitud.Text)))
+                if (poi.estaCercaDe(Convert.ToDouble(txt_latitud.Text), Convert.ToDouble(txt_longitud.Text)))
                 {
                     int n = dataGridView1.Rows.Add();
                     dataGridView1.Rows[n].Cells[0].Value = poi.obtenerNombre();
@@ -260,21 +178,6 @@ namespace tp_disenio_1
         {
             Reporte reporte = new Reporte();
             reporte.Show();
-        }
-
-        private void button3_Click_3(object sender, EventArgs e)
-        {
-            this.EnviarMail("114");
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
 

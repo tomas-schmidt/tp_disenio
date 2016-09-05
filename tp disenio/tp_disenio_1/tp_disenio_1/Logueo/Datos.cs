@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 using System.Configuration;
 
@@ -19,13 +20,30 @@ namespace tp_disenio_1
         static SqlConnection conexion = new SqlConnection();
         public static int tipo_admin;
 
+        private static string leerArch()
+        {
+
+            string rutaArch = @"C:\PC.txt"; //PONER EN ARCHIVO PC EL STRING DE CONEXION DE CADA UNO
+            string texto;
+            StreamReader leer = new StreamReader(rutaArch);
+            texto = leer.ReadToEnd();
+            return texto;
+        }
 
         public static void abrirConexion()
+<<<<<<< HEAD
         {   
          //  conexion.ConnectionString = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=TP_Diseño; Integrated Security=Yes"; // PARA PC DE JUAN
          //conexion.ConnectionString = "Server=localhost\\SQLSERVER2012;Database=ProyectoEscuela;USER ID=gd;Password=gd2016"; // PARA PC DE GABRIEL
                 conexion.ConnectionString = "Server=localhost\\SQLSERVER2012;Database=GD1C2016;USER ID=gd;Password=gd2016"; // PARA PC DE TOMAS
             
+=======
+        {
+            //PONER EN ARCHIVO PC EL STRING DE CONEXION DE CADA UNO
+            //Data Source=DESKTOP-NP4J7AB; Initial Catalog=TP_Diseño; Integrated Security=Yes // PARA PC DE JUAN
+            //Server=localhost\\SQLSERVER2012;Database=GD1C2016;USER ID=gd;Password=gd2016 // PARA PC DE TOMAS
+            conexion.ConnectionString = leerArch();
+>>>>>>> 74821a3d2fce361035bc0c0f0ab4038e942c769c
             conexion.Open();
         }
         public static void CerrarConexion()

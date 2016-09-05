@@ -5,17 +5,19 @@ using System.Text;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.Sql;
+using System.IO;
 
 namespace tp_disenio_1
 {
     public class BaseDeDatos
     {
         public String parametrosConexionDB;
-        
 
-        public BaseDeDatos()
+        private static string leerArch()
         {
 
+<<<<<<< HEAD
             //esquema = System.Configuration.ConfigurationManager.AppSettings["esquema"];
 
 
@@ -23,8 +25,22 @@ namespace tp_disenio_1
            // parametrosConexionDB = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=TP_Diseño; Integrated Security=Yes"; // PARA PC DE JUAN
        // parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=ProyectoEscuela;USER ID=gd;Password=gd2016";  //PARA PC DE GABRIEL
         parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=GD1C2016;USER ID=gd;Password=gd2016";  //PARA PC DE TOMAS
+=======
+            string rutaArch = @"C:\PC.txt"; //PONER EN ARCHIVO PC EL STRING DE CONEXION DE CADA UNO
+            string texto;
+            StreamReader leer = new StreamReader(rutaArch);
+            texto = leer.ReadToEnd();
+            return texto;
+        }
+>>>>>>> 74821a3d2fce361035bc0c0f0ab4038e942c769c
 
+        public BaseDeDatos()
+        {
+            //PONER EN ARCHIVO "PC" EL STRING DE CONEXION DE CADA UNO
+            //Data Source=DESKTOP-NP4J7AB; Initial Catalog=TP_Diseño; Integrated Security=Yes // PARA PC DE JUAN
+            //Server=localhost\\SQLSERVER2012;Database=GD1C2016;USER ID=gd;Password=gd2016  //PARA PC DE TOMAS
 
+            parametrosConexionDB = leerArch(); 
 
         }
 
@@ -47,4 +63,3 @@ namespace tp_disenio_1
 
     }
 }
-
