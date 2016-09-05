@@ -17,22 +17,13 @@ namespace tp_disenio_1
         private static string leerArch()
         {
 
-<<<<<<< HEAD
-            //esquema = System.Configuration.ConfigurationManager.AppSettings["esquema"];
 
-
-
-           // parametrosConexionDB = @"Data Source=DESKTOP-NP4J7AB; Initial Catalog=TP_Diseño; Integrated Security=Yes"; // PARA PC DE JUAN
-       // parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=ProyectoEscuela;USER ID=gd;Password=gd2016";  //PARA PC DE GABRIEL
-        parametrosConexionDB = "Server=localhost\\SQLSERVER2012;Database=GD1C2016;USER ID=gd;Password=gd2016";  //PARA PC DE TOMAS
-=======
             string rutaArch = @"C:\PC.txt"; //PONER EN ARCHIVO PC EL STRING DE CONEXION DE CADA UNO
             string texto;
             StreamReader leer = new StreamReader(rutaArch);
             texto = leer.ReadToEnd();
             return texto;
         }
->>>>>>> 74821a3d2fce361035bc0c0f0ab4038e942c769c
 
         public BaseDeDatos()
         {
