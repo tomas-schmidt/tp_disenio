@@ -1,3 +1,70 @@
+create table poi
+(
+	id_poi INT IDENTITY(1,1) PRIMARY KEY,
+	nombre varchar(50),
+	longitud int,
+	latitud int,
+	direccion int
+)
+GO
+
+
+create table parada
+(
+	id_parada INT IDENTITY(1,1) PRIMARY KEY,
+	id_poi int FOREIGN KEY REFERENCES poi,
+	numero int
+)
+GO
+
+create table cgp
+(
+	id_cgp INT IDENTITY(1,1) PRIMARY KEY,
+	id_poi int FOREIGN KEY REFERENCES poi,
+	comuna int
+)
+GO
+
+create table servicio
+(
+	id_servicio INT IDENTITY(1,1) PRIMARY KEY,
+	descripcion nvarchar(255)
+)
+GO
+
+create table servicios_cgp
+(
+	id_cgp int foreign key references cgp,
+	id_servicio int foreign key references servicio,
+	constraint pk_servicios_cgp primary key clustered (id_cgp, id_servicio)
+)
+GO
+
+create table local
+(
+	id_local INT IDENTITY(1,1) PRIMARY KEY,
+	id_poi int FOREIGN KEY REFERENCES poi,
+	radio_cercania int
+)
+GO
+
+create table rubro
+(
+	id_rubro INT IDENTITY(1,1) PRIMARY KEY,
+	descripcion nvarchar(255)
+)
+GO
+
+create table rubros_local
+(
+	id_local int foreign key references local,
+	id_rubro int foreign key references rubro,
+	constraint pk_rubros_local primary key clustered (id_local, id_rubro)
+)
+GO
+
+
+
 CREATE TABLE Usuarios
 (
 Nombre VARCHAR(50) PRIMARY KEY ,
