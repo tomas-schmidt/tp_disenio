@@ -10,3 +10,11 @@ DROP PROCEDURE guardarParametrosBusqueda
 DROP TABLE Usuarios
 DROP TABLE Consultas
 DROP TABLE UsuarioSesionActual
+DROP TABLE rubros_local
+DROP TABLE local
+DROP TABLE rubro
+DROP TABLE servicios_cgp
+DROP TABLE servicio
+DROP TABLE cgp
+DROP TABLE parada
+DROP TABLE poi
