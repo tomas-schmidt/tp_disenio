@@ -251,10 +251,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(414, 401);
             this.Controls.Add(this.groupBox1);
             this.Name = "AltaPoi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AltaPoi";
             this.Load += new System.EventHandler(this.AltaPoi_Load);
             this.groupBox1.ResumeLayout(false);

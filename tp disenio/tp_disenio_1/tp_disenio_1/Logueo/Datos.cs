@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-
+using tp_disenio_1;
 using System.Configuration;
 
 
@@ -81,11 +81,14 @@ namespace tp_disenio_1
             {
                 mensaje = cmd.Parameters["@mensaje"].Value.ToString();
                 return mensaje;
+                
             }
 
             else
             {
                 return mensaje;
+               
+
             }
 
         }

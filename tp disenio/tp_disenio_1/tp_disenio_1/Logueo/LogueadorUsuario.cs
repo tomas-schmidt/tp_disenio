@@ -42,5 +42,12 @@ namespace tp_disenio_1.Logueo
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Inicio PantallaDeInicio = new Inicio();
+            PantallaDeInicio.Show();
+        }
     }
 }

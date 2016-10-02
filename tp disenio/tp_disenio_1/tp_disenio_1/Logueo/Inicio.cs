@@ -22,7 +22,8 @@ namespace tp_disenio_1
         private void button1_Click(object sender, EventArgs e)
         {
             Logueador lo = new Logueador();
-            lo.Show();            
+            lo.Show();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -31,6 +32,7 @@ namespace tp_disenio_1
             //bp.Show();
             LogueadorUsuario lo2 = new LogueadorUsuario();
             lo2.Show();
+            this.Hide();
         }
 
         private void Inicio_Load(object sender, EventArgs e)

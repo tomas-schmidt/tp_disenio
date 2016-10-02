@@ -59,11 +59,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(284, 193);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "AbmPois";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AbmPois";
             this.Load += new System.EventHandler(this.AbmPois_Load);
             this.ResumeLayout(false);

@@ -59,7 +59,11 @@ namespace tp_disenio_1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+           this.Close();
+           Inicio PantallaDeInicio = new Inicio();
+           PantallaDeInicio.Show();
+           
+            
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)

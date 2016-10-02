@@ -21,7 +21,7 @@ namespace tp_disenio_1.Reportes
 
         private void Reportes_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public void ProcesarConsulta(string texto, int cantidadResultados, int tiempoConsulta)

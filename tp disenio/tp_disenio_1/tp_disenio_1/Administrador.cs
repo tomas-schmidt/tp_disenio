@@ -49,5 +49,12 @@ namespace tp_disenio_1
             ParametrosBusqueda pb = new ParametrosBusqueda();
             pb.Show();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Inicio PantallaDeInicio = new Inicio();
+            PantallaDeInicio.Show();
+        }
     }
 }
