@@ -103,7 +103,12 @@ namespace tp_disenio_1
 
             BaseDeDatos bd = new BaseDeDatos();
             var spObtenerParadas = bd.obtenerStoredProcedure("obtenerParadas");
+            var spObtenerLocales = bd.obtenerStoredProcedure("obtenerLocales");
+            var spObtenerRubrosDeLocal = bd.obtenerStoredProcedure("obtenerRubrosDeLocal");
+            var spObtenerCgps = bd.obtenerStoredProcedure("obtenerCgps");
+            var spObtenerServiciosDeCgp = bd.obtenerStoredProcedure("obtenerServiciosDeCgp");
 
+            //PARADAS
             SqlDataAdapter sda = new SqlDataAdapter();
             sda.SelectCommand = spObtenerParadas;
             DataTable dbdataset = new DataTable();
@@ -111,10 +116,53 @@ namespace tp_disenio_1
             foreach (DataRow item in dbdataset.Rows)
             {
                 Parada parada;
-                parada = new Parada(Convert.ToInt32(item["latitud"]), Convert.ToInt32(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18, item["numero"].ToString());
+                parada = new Parada(Convert.ToDouble(item["latitud"]), Convert.ToDouble(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18, item["numero"].ToString());
                 pois.Add(parada);
             }
 
+            //LOCALES
+            sda.SelectCommand = spObtenerParadas;
+            DataTable dbdataset2 = new DataTable();
+            sda.Fill(dbdataset2);
+            foreach (DataRow item in dbdataset2.Rows)
+            {
+                HashSet<string> rubros = new HashSet<string>();
+                spObtenerRubrosDeLocal.Parameters.Add("@id_local", SqlDbType.Int).Value = Convert.ToInt32(item["id_local"]);
+                sda.SelectCommand = spObtenerRubrosDeLocal;
+                DataTable dbdataset3 = new DataTable();
+                sda.Fill(dbdataset3);
+                foreach (DataRow item3 in dbdataset3.Rows)
+                {
+                    string rubro = item3["descripcion"].ToString();
+                    rubros.Add(rubro);
+                }
+                Local local;
+                local = new Local(Convert.ToDouble(item["latitud"]), Convert.ToDouble(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18, rubros, Convert.ToInt32(item["radio_cercania"]));
+
+                pois.Add(local);
+            }
+
+            //CGPS
+            sda.SelectCommand = spObtenerCgps;
+            DataTable dbdataset4 = new DataTable();
+            sda.Fill(dbdataset4);
+            foreach (DataRow item in dbdataset4.Rows)
+            {
+                List<Servicio> listaServicios = new List<Servicio>();
+                spObtenerServiciosDeCgp.Parameters.Add("@id_cgp", SqlDbType.Int).Value = Convert.ToInt32(item["id_cgp"]);
+                sda.SelectCommand = spObtenerServiciosDeCgp;
+                DataTable dbdataset3 = new DataTable();
+                sda.Fill(dbdataset3);
+                foreach (DataRow item3 in dbdataset3.Rows)
+                {
+                    Servicio unServicio;
+                    unServicio = new Servicio(item["descripcion"].ToString(), lunesAVierner9a18);
+                }
+                CGP cgp;
+                cgp = new CGP(Convert.ToDouble(item["latitud"]), Convert.ToDouble(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18, Convert.ToInt32(item["comuna"]), listaServicios);
+
+                pois.Add(cgp);
+            }
             return pois;
         }
 
