@@ -66,7 +66,6 @@ create table rubros_local
 GO
 
 
-
 CREATE TABLE Usuarios
 (
 Nombre VARCHAR(50) PRIMARY KEY ,

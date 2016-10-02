@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 //using System.Data.SqlClient;
 using tp_disenio_1.Reportes;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace tp_disenio_1
 {
@@ -85,6 +86,37 @@ namespace tp_disenio_1
             return poi;
         }
 
+        public List<Poi> poiss()
+        {
+            List<Poi> pois = new List<Poi>();
+
+            HorarioDeAtencion lunesAVierner9a18;
+            lunesAVierner9a18 = new HorarioDeAtencion(new Tuple<int, int>[]{
+                new Tuple<int,int>(0,0),
+                new Tuple<int,int>(9,18),
+                new Tuple<int,int>(9,18),
+                new Tuple<int,int>(9,18),
+                new Tuple<int,int>(9,18),
+                new Tuple<int,int>(9,18),
+                new Tuple<int,int>(0,0),
+            });
+
+            BaseDeDatos bd = new BaseDeDatos();
+            var spObtenerParadas = bd.obtenerStoredProcedure("obtenerParadas");
+
+            SqlDataAdapter sda = new SqlDataAdapter();
+            sda.SelectCommand = spObtenerParadas;
+            DataTable dbdataset = new DataTable();
+            sda.Fill(dbdataset);
+            foreach (DataRow item in dbdataset.Rows)
+            {
+                Parada parada;
+                parada = new Parada(Convert.ToInt32(item["latitud"]), Convert.ToInt32(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18, item["numero"].ToString());
+                pois.Add(parada);
+            }
+
+            return pois;
+        }
 
     }
 }
