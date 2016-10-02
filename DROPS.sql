@@ -12,10 +12,12 @@ DROP PROCEDURE obtenerLocales
 DROP PROCEDURE obtenerServiciosDeCgp
 DROP PROCEDURE obtenerRubrosDeLocal
 DROP PROCEDURE obtenerBancos
+DROP PROCEDURE obtenerHorariosPoi
 
 DROP TABLE Usuarios
 DROP TABLE Consultas
 DROP TABLE UsuarioSesionActual
+DROP TABLE horario
 DROP TABLE rubros_local
 DROP TABLE local
 DROP TABLE rubro

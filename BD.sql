@@ -66,6 +66,16 @@ create table rubros_local
 )
 GO
 
+create table horario
+(
+	id_poi int foreign key references poi,
+	dia int,
+	hora_inicial int,
+	hora_final int
+	constraint pk_horario primary key clustered (id_poi, dia)
+)
+GO
+
 
 CREATE TABLE Usuarios
 (
@@ -124,10 +134,11 @@ begin
 	on s.id_servicio = sc.id_servicio
 	join cgp c
 	on c.id_cgp = sc.id_cgp
+	where c.id_cgp = @id_cgp
 end
 go
 
-create procedure obtenerRubrosDeLocal (@id_cgp int)
+create procedure obtenerRubrosDeLocal (@id_local int)
 as
 begin
 	select descripcion
@@ -135,6 +146,17 @@ begin
 	on r.id_rubro = rl.id_rubro
 	join local l
 	on l.id_local = rl.id_local
+	where l.id_local = @id_local
+end
+go
+
+create procedure obtenerHorariosPoi (@id_poi int)
+as
+begin
+	select dia, hora_inicial, hora_final
+	from horario 
+	where id_poi = @id_poi
+	order by 1 asc
 end
 go
 
