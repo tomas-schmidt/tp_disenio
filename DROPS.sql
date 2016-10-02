@@ -6,6 +6,11 @@ DROP PROCEDURE resultadosParciales
 DROP PROCEDURE resultadosTotales
 DROP PROCEDURE obtenerParametrosBusqueda
 DROP PROCEDURE guardarParametrosBusqueda
+DROP PROCEDURE obtenerParadas
+DROP PROCEDURE obtenerCgps
+DROP PROCEDURE obtenerLocales
+DROP PROCEDURE obtenerServiciosDeCgp
+DROP PROCEDURE obtenerRubrosDeLocal
 
 DROP TABLE Usuarios
 DROP TABLE Consultas
