@@ -6,7 +6,8 @@ create table poi
 	nombre varchar(50),
 	longitud int,
 	latitud int,
-	direccion int
+	direccion int,
+	es_banco bit
 )
 GO
 
@@ -86,6 +87,16 @@ begin
 	on po.id_poi = pa.id_poi
 end
 go
+
+create procedure obtenerBancos
+as
+begin
+	select nombre, longitud, latitud, direccion
+	from poi 
+	where es_banco like 1
+end
+go
+
 
 create procedure obtenerLocales
 as

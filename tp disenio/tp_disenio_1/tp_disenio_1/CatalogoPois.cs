@@ -107,6 +107,8 @@ namespace tp_disenio_1
             var spObtenerRubrosDeLocal = bd.obtenerStoredProcedure("obtenerRubrosDeLocal");
             var spObtenerCgps = bd.obtenerStoredProcedure("obtenerCgps");
             var spObtenerServiciosDeCgp = bd.obtenerStoredProcedure("obtenerServiciosDeCgp");
+            var spObtenerBancos = bd.obtenerStoredProcedure("obtenerBancos");
+
 
             //PARADAS
             SqlDataAdapter sda = new SqlDataAdapter();
@@ -163,6 +165,18 @@ namespace tp_disenio_1
 
                 pois.Add(cgp);
             }
+
+            //BANCOS
+            sda.SelectCommand = spObtenerBancos;
+            DataTable dbdataset5 = new DataTable();
+            sda.Fill(dbdataset5);
+            foreach (DataRow item in dbdataset5.Rows)
+            {
+                Banco banco;
+                banco = new Banco(Convert.ToDouble(item["latitud"]), Convert.ToDouble(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18);
+                pois.Add(banco);
+            }
+
             return pois;
         }
 
