@@ -11,6 +11,7 @@ DROP PROCEDURE obtenerCgps
 DROP PROCEDURE obtenerLocales
 DROP PROCEDURE obtenerServiciosDeCgp
 DROP PROCEDURE obtenerRubrosDeLocal
+DROP PROCEDURE obtenerBancos
 
 DROP TABLE Usuarios
 DROP TABLE Consultas

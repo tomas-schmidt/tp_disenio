@@ -6,7 +6,7 @@ create table poi
 	nombre varchar(50),
 	longitud int,
 	latitud int,
-	direccion int,
+	direccion varchar(255),
 	es_banco bit
 )
 GO
@@ -238,3 +238,53 @@ AS
 SELECT u2.Mail,u2.TiempoMaxBusqueda from Usuarios u2 where u2.Nombre=(SELECT u.Nombre from UsuarioSesionActual u) 
 GO   
 
+/************************AGREGO POIS*************************/
+
+/*AGREGO PARADA DEL 114*/
+INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco)
+values(6,8,'parada del 114' ,'avellaneda 367', 0)
+
+INSERT INTO parada
+(id_poi, numero)
+values(1, 114)
+ 
+/*AGREGO BANCO SANTANDER*/
+ INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco)
+values(6,9,'banco santander' ,'lavalle 1502', 1)
+
+
+/*AGREGO CGP "COMUNA 2"*/
+INSERT INTO servicio
+(descripcion)
+values('un servicio')
+
+ INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco)
+values(5,3,'comuna numero 2' ,'av cordoba 1000', 0)
+
+INSERT INTO cgp
+(comuna)
+values(2)
+
+INSERT INTO servicios_cgp
+(id_cgp, id_servicio)
+values(1,1)
+
+/*AGREGO LOCAL LIBRERIA*/
+ INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco)
+values(5,3,'libreria escolar' ,'medrano 1200', 0)
+
+INSERT INTO local
+(radio_cercania)
+values(500)
+
+INSERT INTO rubro
+(descripcion)
+values('libreria')
+
+INSERT INTO rubros_local
+(id_local, id_rubro)
+values(1,1)
