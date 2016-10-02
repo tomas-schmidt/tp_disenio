@@ -12,7 +12,8 @@ namespace tp_disenio_1
 {
     class CatalogoPois
     {
-        protected List<Poi> pois = new List<Poi>();
+        //protected List<Poi> pois = new List<Poi>();
+        //protected List<Poi> pois = poiss();
         //private static CatalogoPois instance;
 
         //private CatalogoPois()
@@ -29,22 +30,24 @@ namespace tp_disenio_1
         //    return instance;
         //}
 
+        
         public void agregarPoi(Poi poiNuevo)
         {
-           pois.Add(poiNuevo);
+           this.pois().Add(poiNuevo);
         }
 
         public void eliminarPoi(Poi poiNuevo)
         {
-            pois.Remove(poiNuevo);
+            this.pois().Remove(poiNuevo);
         }
 
 
         public List<Poi> lista()
         {
-            return this.pois;
+            return this.pois();
         }
-
+         
+        
 
         
        
@@ -52,7 +55,7 @@ namespace tp_disenio_1
         {
             
             List<Poi> resultado = new List<Poi>();
-            foreach (Poi poi in pois)
+            foreach (Poi poi in this.pois())
             {
                 if (poi.matcheaBusqueda(texto))
                 {
@@ -66,7 +69,7 @@ namespace tp_disenio_1
 
         public bool tieneA(string nombre)
         {
-            foreach (Poi poi in pois)
+            foreach (Poi poi in this.pois())
             {
                 if (poi.obtenerNombre() == nombre)
                 {
@@ -79,11 +82,11 @@ namespace tp_disenio_1
         public Poi obtenerPoi(string nombre)
         {
             Poi poi;
-            poi =pois.Find(p => p.obtenerNombre() == nombre);
+            poi = this.pois().Find(p => p.obtenerNombre() == nombre);
             return poi;
         }
 
-        public List<Poi> poiss()
+        public List<Poi> pois()
         {
             List<Poi> pois = new List<Poi>();
 
@@ -133,7 +136,7 @@ namespace tp_disenio_1
             }
 
             //LOCALES
-            sda.SelectCommand = spObtenerParadas;
+            sda.SelectCommand = spObtenerLocales;
             DataTable dbdataset2 = new DataTable();
             sda.Fill(dbdataset2);
             foreach (DataRow item in dbdataset2.Rows)

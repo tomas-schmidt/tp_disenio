@@ -48,13 +48,15 @@ namespace tp_disenio_1
             //{
             //    this.Close();
             //}
+
+            
             ////////////////////////////// PRUEBAS /////////////////////////////////////////
 
             //creamos algunos objetos
 
             catalogo = new CatalogoPois();
 
-
+            /*
             lunesAVierner9a18 = new HorarioDeAtencion(new Tuple<int, int>[]{
                 new Tuple<int,int>(0,0),
                 new Tuple<int,int>(9,18),
@@ -86,7 +88,7 @@ namespace tp_disenio_1
             catalogo.agregarPoi(libreria);
             catalogo.agregarPoi(comuna2);
             ////////////////////////////// PRUEBAS /////////////////////////////////////////
-            
+            */
         }
 
 
