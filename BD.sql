@@ -69,7 +69,7 @@ GO
 create table horario
 (
 	id_poi int foreign key references poi,
-	dia int,
+	dia int CHECK(dia < 7),
 	hora_inicial int,
 	hora_final int
 	constraint pk_horario primary key clustered (id_poi, dia)
@@ -92,7 +92,7 @@ GO
 create procedure obtenerParadas
 as
 begin
-	select nombre, longitud, latitud, direccion, numero
+	select nombre, longitud, latitud, direccion, numero, po.id_poi
 	from poi po join parada pa 
 	on po.id_poi = pa.id_poi
 end
@@ -101,7 +101,7 @@ go
 create procedure obtenerBancos
 as
 begin
-	select nombre, longitud, latitud, direccion
+	select nombre, longitud, latitud, direccion, id_poi
 	from poi 
 	where es_banco like 1
 end
@@ -111,7 +111,7 @@ go
 create procedure obtenerLocales
 as
 begin
-	select id_local, nombre, longitud, latitud, direccion, radio_cercania
+	select id_local, nombre, longitud, latitud, direccion, radio_cercania, po.id_poi
 	from poi po join local lo 
 on po.id_poi = lo.id_poi
 end
@@ -120,7 +120,7 @@ go
 create procedure obtenerCgps
 as
 begin
-	select id_cgp, nombre, longitud, latitud, direccion, comuna
+	select id_cgp, nombre, longitud, latitud, direccion, comuna, po.id_poi
 	from poi po join cgp c
 	on po.id_poi = c.id_poi
 end
@@ -310,3 +310,40 @@ values('libreria')
 INSERT INTO rubros_local
 (id_local, id_rubro)
 values(1,1)
+
+
+/**************INSERTO HORARIOS A TODOS LOS POIS DE 9 A 18**************/
+INSERT INTO horario
+(id_poi, dia, hora_inicial, hora_final)
+	(select id_poi, 0, 9, 18
+	from poi)
+
+INSERT INTO horario
+(id_poi, dia, hora_inicial, hora_final)
+	(select id_poi, 1, 9, 18
+	from poi)
+
+INSERT INTO horario
+(id_poi, dia, hora_inicial, hora_final)
+	(select id_poi, 2, 9, 18
+	from poi)
+
+INSERT INTO horario
+(id_poi, dia, hora_inicial, hora_final)
+	(select id_poi, 3, 9, 18
+	from poi)
+
+INSERT INTO horario
+(id_poi, dia, hora_inicial, hora_final)
+	(select id_poi, 4, 9, 18
+	from poi)
+
+INSERT INTO horario
+(id_poi, dia, hora_inicial, hora_final)
+	(select id_poi, 5, 9, 18
+	from poi)
+
+INSERT INTO horario
+(id_poi, dia, hora_inicial, hora_final)
+	(select id_poi, 6, 9, 18
+	from poi)
