@@ -1,3 +1,5 @@
+/********TABLAS***********/
+
 create table poi
 (
 	id_poi INT IDENTITY(1,1) PRIMARY KEY,
@@ -74,6 +76,59 @@ Mail VARCHAR(50),
 TiempoMaxBusqueda INT  
 )
 GO
+
+/********PROCEDURES***********/
+
+create procedure obtenerParadas
+as
+begin
+	select nombre, longitud, latitud, direccion, numero
+	from poi po join parada pa 
+	on po.id_poi = pa.id_poi
+end
+go
+
+create procedure obtenerLocales
+as
+begin
+	select id_local, nombre, longitud, latitud, direccion, radio_cercania
+	from poi po join local lo 
+on po.id_poi = lo.id_poi
+end
+go
+
+create procedure obtenerCgps
+as
+begin
+	select id_cgp, nombre, longitud, latitud, direccion, comuna
+	from poi po join cgp c
+	on po.id_poi = c.id_poi
+end
+go
+
+create procedure obtenerServiciosDeCgp (@id_cgp int)
+as
+begin
+	select descripcion
+	from servicio s join servicios_cgp sc
+	on s.id_servicio = sc.id_servicio
+	join cgp c
+	on c.id_cgp = sc.id_cgp
+end
+go
+
+create procedure obtenerRubrosDeLocal (@id_cgp int)
+as
+begin
+	select descripcion
+	from rubro r join rubros_local rl
+	on r.id_rubro = rl.id_rubro
+	join local l
+	on l.id_local = rl.id_local
+end
+go
+
+
 
 --AGREGO USUARIO ADMINISTRADOR
 
