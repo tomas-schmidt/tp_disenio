@@ -33,6 +33,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -48,11 +49,12 @@
             this.Column2,
             this.Column3,
             this.Column4,
+            this.Column7,
             this.Column5,
             this.Column6});
-            this.dataGridView1.Location = new System.Drawing.Point(29, 34);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 33);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 193);
+            this.dataGridView1.Size = new System.Drawing.Size(633, 193);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -76,9 +78,14 @@
             this.Column4.HeaderText = "Direccion";
             this.Column4.Name = "Column4";
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Habilitado";
+            this.Column7.Name = "Column7";
+            // 
             // Column5
             // 
-            this.Column5.HeaderText = "Baja";
+            this.Column5.HeaderText = "Alta/Baja";
             this.Column5.Name = "Column5";
             // 
             // Column6
@@ -91,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 255);
+            this.ClientSize = new System.Drawing.Size(657, 255);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ModificarPoi";
             this.Text = "ModificarPoi";
@@ -108,6 +115,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
 

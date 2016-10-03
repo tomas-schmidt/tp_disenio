@@ -390,18 +390,19 @@ go
 create procedure obtenerPois
 as
 begin
-	select id_poi, nombre, latitud, longitud, direccion
-	from poi where habilitado = 1
+	select id_poi, nombre, latitud, longitud, direccion, habilitado
+	from poi
 end
 go
 
 /****************************************************************
- *							darBajaPoi
+ *							altaYBajaPoi
  ****************************************************************/
 create procedure darBajaPoi @id_poi int
 as
 begin
-	update poi set habilitado = 0
+
+	update poi set habilitado = ~ habilitado 
 	where id_poi = @id_poi
 end
 go

@@ -39,8 +39,9 @@ namespace tp_disenio_1.ABM_Pois
                 dataGridView1.Rows[n].Cells[1].Value = item["latitud"].ToString();
                 dataGridView1.Rows[n].Cells[2].Value = item["longitud"].ToString();
                 dataGridView1.Rows[n].Cells[3].Value = item["direccion"].ToString();
-                dataGridView1.Rows[n].Cells[4].Value = "Baja";
-                dataGridView1.Rows[n].Cells[5].Value = item["id_poi"].ToString();
+                dataGridView1.Rows[n].Cells[5].Value = "Alta/Baja";
+                dataGridView1.Rows[n].Cells[6].Value = item["id_poi"].ToString();
+                dataGridView1.Rows[n].Cells[4].Value = (bool)item["habilitado"];
 
             }
 
@@ -48,14 +49,14 @@ namespace tp_disenio_1.ABM_Pois
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4 && (e.RowIndex != -1))
+            if (e.ColumnIndex == 5 && (e.RowIndex != -1))
             {
                 BaseDeDatos bd = new BaseDeDatos();
-                var spdarBajaPoi = bd.obtenerStoredProcedure("darBajaPoi");
-                spdarBajaPoi.Parameters.Add("@id_poi", SqlDbType.VarChar).Value = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                spdarBajaPoi.ExecuteNonQuery();
-                spdarBajaPoi.Connection.Close();
-                MessageBox.Show("El POI fue dado de baja");
+                var spAltaYBajaPoi = bd.obtenerStoredProcedure("altaYBajaPoi");
+                spAltaYBajaPoi.Parameters.Add("@id_poi", SqlDbType.VarChar).Value = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                spAltaYBajaPoi.ExecuteNonQuery();
+                spAltaYBajaPoi.Connection.Close();
+                MessageBox.Show("El POI fue dado de alta/baja");
                 dataGridView1.Rows.Clear();
                 this.cargarTabla();
             }
