@@ -1,5 +1,8 @@
 /********TABLAS***********/
 
+/****************************************************************
+ *							poi
+ ****************************************************************/
 create table poi
 (
 	id_poi INT IDENTITY(1,1) PRIMARY KEY,
@@ -12,7 +15,9 @@ create table poi
 )
 GO
 
-
+/****************************************************************
+ *						  parada
+ ****************************************************************/
 create table parada
 (
 	id_parada INT IDENTITY(1,1) PRIMARY KEY,
@@ -21,6 +26,10 @@ create table parada
 )
 GO
 
+
+/****************************************************************
+ *							cgp
+ ****************************************************************/
 create table cgp
 (
 	id_cgp INT IDENTITY(1,1) PRIMARY KEY,
@@ -29,6 +38,9 @@ create table cgp
 )
 GO
 
+/****************************************************************
+ *							servicio
+ ****************************************************************/
 create table servicio
 (
 	id_servicio INT IDENTITY(1,1) PRIMARY KEY,
@@ -36,6 +48,10 @@ create table servicio
 )
 GO
 
+
+/****************************************************************
+ *							servicios_cgp
+ ****************************************************************/
 create table servicios_cgp
 (
 	id_cgp int foreign key references cgp,
@@ -44,6 +60,9 @@ create table servicios_cgp
 )
 GO
 
+/****************************************************************
+ *							local
+ ****************************************************************/
 create table local
 (
 	id_local INT IDENTITY(1,1) PRIMARY KEY,
@@ -52,6 +71,9 @@ create table local
 )
 GO
 
+/****************************************************************
+ *							rubro
+ ****************************************************************/
 create table rubro
 (
 	id_rubro INT IDENTITY(1,1) PRIMARY KEY,
@@ -59,6 +81,9 @@ create table rubro
 )
 GO
 
+/****************************************************************
+ *							rubro_local
+ ****************************************************************/
 create table rubros_local
 (
 	id_local int foreign key references local,
@@ -67,6 +92,9 @@ create table rubros_local
 )
 GO
 
+/****************************************************************
+ *							horario
+ ****************************************************************/
 create table horario
 (
 	id_poi int foreign key references poi,
@@ -77,7 +105,9 @@ create table horario
 )
 GO
 
-
+/****************************************************************
+ *							Usuarios
+ ****************************************************************/
 CREATE TABLE Usuarios
 (
 Nombre VARCHAR(50) PRIMARY KEY ,
@@ -90,6 +120,10 @@ GO
 
 /********PROCEDURES***********/
 
+
+/****************************************************************
+ *							ObtenerParadas
+ ****************************************************************/
 create procedure obtenerParadas
 as
 begin
@@ -100,6 +134,9 @@ begin
 end
 go
 
+/****************************************************************
+ *							ObtenerBancos
+ ****************************************************************/
 create procedure obtenerBancos
 as
 begin
@@ -110,7 +147,9 @@ begin
 end
 go
 
-
+/****************************************************************
+ *							ObtenerLocales
+ ****************************************************************/
 create procedure obtenerLocales
 as
 begin
@@ -121,6 +160,9 @@ begin
 end
 go
 
+/****************************************************************
+ *							ObtenerCgps
+ ****************************************************************/
 create procedure obtenerCgps
 as
 begin
@@ -131,6 +173,9 @@ begin
 end
 go
 
+/****************************************************************
+ *							ObtenerServiciosDeCgp
+ ****************************************************************/
 create procedure obtenerServiciosDeCgp @id_cgp int
 as
 begin
@@ -142,6 +187,9 @@ begin
 end
 go
 
+/****************************************************************
+ *							ObtenerRubroaDeLocal
+ ****************************************************************/
 create procedure obtenerRubrosDeLocal @id_local int
 as
 begin
@@ -153,6 +201,9 @@ begin
 end
 go
 
+/****************************************************************
+ *							ObtenerHorariosPoi
+ ****************************************************************/
 create procedure obtenerHorariosPoi (@id_poi int)
 as
 begin
@@ -163,6 +214,9 @@ begin
 end
 go
 
+/****************************************************************
+ *							crearPoi
+ ****************************************************************/
 create procedure crearPoi 
 	@latitud numeric(18,2), @longitud numeric(18,2), @direccion nvarchar(50), @nombre nvarchar(255),
 	@horaInicio1 numeric(18,2), @horaFin1 numeric(18,2), @horaInicio2 numeric(18,2), @horaFin2 numeric(18,2),
@@ -188,7 +242,9 @@ begin
 end
 go
 
-
+/****************************************************************
+ *							crearParada
+ ****************************************************************/
 create procedure crearParada
 	@latitud numeric(18,2), @longitud numeric(18,2), @direccion nvarchar(50), @nombre nvarchar(255),@numeroParada int
 as 
@@ -231,7 +287,9 @@ begin
 end
 go
 
-
+/****************************************************************
+ *							crearCgp
+ ****************************************************************/
 create procedure crearCgp
 	@latitud numeric(18,2), @longitud numeric(18,2), @direccion nvarchar(50), @nombre nvarchar(255),
 	@horaInicio1 numeric(18,2), @horaFin1 numeric(18,2), @horaInicio2 numeric(18,2), @horaFin2 numeric(18,2),
@@ -282,6 +340,9 @@ begin
 end
 go
 
+/****************************************************************
+ *							ObtenerServicios
+ ****************************************************************/
 create procedure obtenerServicios
 as
 begin
@@ -290,7 +351,9 @@ begin
 end
 go
 
-
+/****************************************************************
+ *							ObtenerRubros
+ ****************************************************************/
 create procedure obtenerRubros
 as
 begin
@@ -299,7 +362,9 @@ begin
 end
 go
 
-
+/****************************************************************
+ *							agregarServicioACgp
+ ****************************************************************/
 create procedure agregarServicioACgp @id_cgp int, @id_servicio int
 as
 begin
@@ -308,7 +373,9 @@ begin
 end
 go
 
-
+/****************************************************************
+ *							agregarRubroALocal
+ ****************************************************************/
 create procedure agregarRubroALocal @id_local int, @id_rubro int
 as
 begin
@@ -317,7 +384,9 @@ begin
 end
 go
 
-
+/****************************************************************
+ *							ObtenerPois
+ ****************************************************************/
 create procedure obtenerPois
 as
 begin
@@ -326,6 +395,9 @@ begin
 end
 go
 
+/****************************************************************
+ *							darBajaPoi
+ ****************************************************************/
 create procedure darBajaPoi @id_poi int
 as
 begin
@@ -333,6 +405,8 @@ begin
 	where id_poi = @id_poi
 end
 go
+	
+	
 	
 --AGREGO USUARIO ADMINISTRADOR
 
