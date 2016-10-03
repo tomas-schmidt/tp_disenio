@@ -22,7 +22,7 @@ DROP PROCEDURE obtenerServicios
 DROP PROCEDURE obtenerRubros
 DROP PROCEDURE agregarServicioACgp
 DROP PROCEDURE agregarRubroALocal
-DROP PROCEDURE darBajaPoi
+DROP PROCEDURE altaYBajaPoi
 DROP PROCEDURE obtenerPois
 
 DROP TABLE Usuarios

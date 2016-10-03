@@ -398,7 +398,7 @@ go
 /****************************************************************
  *							altaYBajaPoi
  ****************************************************************/
-create procedure darBajaPoi @id_poi int
+create procedure altaYBajaPoi @id_poi int
 as
 begin
 
