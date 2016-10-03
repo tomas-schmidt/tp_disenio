@@ -96,6 +96,7 @@ begin
 	select nombre, longitud, latitud, direccion, numero, po.id_poi
 	from poi po join parada pa 
 	on po.id_poi = pa.id_poi
+	where po.habilitado = 1
 end
 go
 
@@ -104,7 +105,8 @@ as
 begin
 	select nombre, longitud, latitud, direccion, id_poi
 	from poi 
-	where es_banco like 1
+	where es_banco like 1 and habilitado = 1
+
 end
 go
 
@@ -115,6 +117,7 @@ begin
 	select id_local, nombre, longitud, latitud, direccion, radio_cercania, po.id_poi
 	from poi po join local lo 
 	on po.id_poi = lo.id_poi
+	where po.habilitado = 1
 end
 go
 
@@ -124,6 +127,7 @@ begin
 	select id_cgp, nombre, longitud, latitud, direccion, comuna, po.id_poi
 	from poi po join cgp c
 	on po.id_poi = c.id_poi
+	where po.habilitado = 1
 end
 go
 
@@ -432,8 +436,8 @@ GO
 
 /*AGREGO PARADA DEL 114*/
 INSERT INTO poi
-(latitud, longitud, nombre, direccion, es_banco)
-values(6,8,'parada del 114' ,'avellaneda 367', 0)
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(6,8,'parada del 114' ,'avellaneda 367', 0, 1)
 
 INSERT INTO parada
 (id_poi, numero)
@@ -441,8 +445,8 @@ values(1, 114)
  
 /*AGREGO BANCO SANTANDER*/
  INSERT INTO poi
-(latitud, longitud, nombre, direccion, es_banco)
-values(6,9,'banco santander' ,'lavalle 1502', 1)
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(6,9,'banco santander' ,'lavalle 1502', 1, 1)
 
 
 /*AGREGO CGP "COMUNA 2"*/
@@ -451,8 +455,8 @@ INSERT INTO servicio
 values('un servicio')
 
  INSERT INTO poi
-(latitud, longitud, nombre, direccion, es_banco)
-values(5,3,'comuna numero 2' ,'av cordoba 1000', 0)
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(5,3,'comuna numero 2' ,'av cordoba 1000', 0, 1)
 
 INSERT INTO cgp
 (comuna, id_poi)
@@ -464,8 +468,8 @@ values(1,1)
 
 /*AGREGO LOCAL LIBRERIA*/
  INSERT INTO poi
-(latitud, longitud, nombre, direccion, es_banco)
-values(5,3,'libreria escolar' ,'medrano 1200', 0)
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(5,3,'libreria escolar' ,'medrano 1200', 0, 1)
 
 INSERT INTO local
 (radio_cercania, id_poi)

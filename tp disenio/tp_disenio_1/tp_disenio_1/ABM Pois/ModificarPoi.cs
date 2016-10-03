@@ -52,10 +52,11 @@ namespace tp_disenio_1.ABM_Pois
             {
                 BaseDeDatos bd = new BaseDeDatos();
                 var spdarBajaPoi = bd.obtenerStoredProcedure("darBajaPoi");
-                spdarBajaPoi.Parameters.Add("@Id_Rol", SqlDbType.VarChar).Value = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                spdarBajaPoi.Parameters.Add("@id_poi", SqlDbType.VarChar).Value = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
                 spdarBajaPoi.ExecuteNonQuery();
                 spdarBajaPoi.Connection.Close();
                 MessageBox.Show("El POI fue dado de baja");
+                dataGridView1.Rows.Clear();
                 this.cargarTabla();
             }
         }
