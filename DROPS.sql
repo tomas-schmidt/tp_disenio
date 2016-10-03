@@ -13,6 +13,11 @@ DROP PROCEDURE obtenerServiciosDeCgp
 DROP PROCEDURE obtenerRubrosDeLocal
 DROP PROCEDURE obtenerBancos
 DROP PROCEDURE obtenerHorariosPoi
+DROP PROCEDURE crearPoi
+DROP PROCEDURE crearParada
+DROP PROCEDURE crearBanco
+DROP PROCEDURE crearCgp
+DROP PROCEDURE crearLocal
 
 DROP TABLE Usuarios
 DROP TABLE Consultas

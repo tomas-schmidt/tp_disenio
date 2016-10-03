@@ -160,7 +160,126 @@ begin
 end
 go
 
+create procedure crearPoi 
+	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
+	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
+	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
+	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2)
+as
+begin
+	declare @id_poi int
 
+	insert into poi (nombre, longitud, latitud, direccion, es_banco)
+	values (@nombre, @longitud, @latitud, @direccion, 0)
+
+	set @id_poi = (select top 1 id_poi from poi order by id_poi desc)
+	/*INSERTO HORARIO DE ATENCION*/
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 1, @horaInicio1, @horaFin1)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 2, @horaInicio2, @horaFin2)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 3, @horaInicio3, @horaFin3)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 4, @horaInicio4, @horaFin4)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 5, @horaInicio5, @horaFin5)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 6, @horaInicio6, @horaFin6)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 7, @horaInicio7, @horaFin7)
+end
+go
+
+
+create procedure crearParada
+	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
+	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
+	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
+	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2), @numeroParada int
+as
+begin
+
+	declare @id_poi int
+
+	exec crearPoi @latitud, @longitud, @direccion, @nombre,
+				  @horaInicio1, @horaFin1, @horaInicio2, @horaFin2,
+				  @horaInicio3, @horaFin3, @horaInicio4, @horaFin4,
+				  @horaInicio5, @horaFin5, @horaInicio6, @horaFin6,
+				  @horaInicio7, @horaFin7
+
+	set @id_poi  = (select top 1 id_poi from poi order by id_poi desc)
+
+insert into parada (numero, id_poi) values (@numeroParada, @id_poi)
+end
+go
+
+
+create procedure crearLocal
+	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
+	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
+	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
+	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2), @radioCercania int
+as
+begin
+	declare @id_poi int
+
+	exec crearPoi @latitud, @longitud, @direccion, @nombre,
+				  @horaInicio1, @horaFin1, @horaInicio2, @horaFin2,
+				  @horaInicio3, @horaFin3, @horaInicio4, @horaFin4,
+				  @horaInicio5, @horaFin5, @horaInicio6, @horaFin6,
+				  @horaInicio7, @horaFin7
+
+	set @id_poi  = (select top 1 id_poi from poi order by id_poi desc)
+
+insert into local (radio_cercania, id_poi) values (@radioCercania, @id_poi)
+end
+go
+
+
+create procedure crearCgp
+	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
+	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
+	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
+	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2), @comuna int
+as
+begin
+
+	declare @id_poi int
+
+	exec crearPoi @latitud, @longitud, @direccion, @nombre,
+				  @horaInicio1, @horaFin1, @horaInicio2, @horaFin2,
+				  @horaInicio3, @horaFin3, @horaInicio4, @horaFin4,
+				  @horaInicio5, @horaFin5, @horaInicio6, @horaFin6,
+				  @horaInicio7, @horaFin7
+
+	set @id_poi  = (select top 1 id_poi from poi order by id_poi desc)
+
+	insert into cgp (comuna, id_poi) values (@comuna, @id_poi)
+end
+go
+
+create procedure crearBanco
+	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
+	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
+	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
+	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2)
+as
+begin
+	declare @id_poi int
+
+	insert into poi (nombre, longitud, latitud, direccion, es_banco)
+	values (@nombre, @longitud, @latitud, @direccion, 1)
+
+	set @id_poi = (select top 1 id_poi from poi order by id_poi desc)
+	/*INSERTO HORARIO DE ATENCION*/
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 1, @horaInicio1, @horaFin1)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 2, @horaInicio2, @horaFin2)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 3, @horaInicio3, @horaFin3)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 4, @horaInicio4, @horaFin4)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 5, @horaInicio5, @horaFin5)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 6, @horaInicio6, @horaFin6)
+	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 7, @horaInicio7, @horaFin7)
+end
+go
 
 --AGREGO USUARIO ADMINISTRADOR
 
