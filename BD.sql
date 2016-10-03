@@ -7,7 +7,8 @@ create table poi
 	longitud int,
 	latitud int,
 	direccion varchar(255),
-	es_banco bit
+	es_banco bit,
+	habilitado bit
 )
 GO
 
@@ -69,7 +70,7 @@ GO
 create table horario
 (
 	id_poi int foreign key references poi,
-	dia int CHECK(dia < 7),
+	dia int CHECK(dia < 8),
 	hora_inicial int,
 	hora_final int
 	constraint pk_horario primary key clustered (id_poi, dia)
@@ -170,8 +171,8 @@ as
 begin
 	declare @id_poi int
 
-	insert into poi (nombre, longitud, latitud, direccion, es_banco)
-	values (@nombre, @longitud, @latitud, @direccion, 0)
+	insert into poi (nombre, longitud, latitud, direccion, es_banco, habilitado)
+	values (@nombre, @longitud, @latitud, @direccion, 0, 1)
 
 	set @id_poi = (select top 1 id_poi from poi order by id_poi desc)
 	/*INSERTO HORARIO DE ATENCION*/
@@ -187,21 +188,15 @@ go
 
 
 create procedure crearParada
-	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
-	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
-	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
-	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
-	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2), @numeroParada int
-as
+	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),@numeroParada int
+as 
 begin
 
 	declare @id_poi int
 
 	exec crearPoi @latitud, @longitud, @direccion, @nombre,
-				  @horaInicio1, @horaFin1, @horaInicio2, @horaFin2,
-				  @horaInicio3, @horaFin3, @horaInicio4, @horaFin4,
-				  @horaInicio5, @horaFin5, @horaInicio6, @horaFin6,
-				  @horaInicio7, @horaFin7
+				  0, 24, 0, 24, 0, 24, 0, 24, 0, 24, 0, 24, 0, 24
+				  
 
 	set @id_poi  = (select top 1 id_poi from poi order by id_poi desc)
 
@@ -321,6 +316,22 @@ end
 go
 
 
+create procedure obtenerPois
+as
+begin
+	select id_poi, nombre, latitud, longitud, direccion
+	from poi where habilitado = 1
+end
+go
+
+create procedure darBajaPoi @id_poi int
+as
+begin
+	update poi set habilitado = 0
+	where id_poi = @id_poi
+end
+go
+	
 --AGREGO USUARIO ADMINISTRADOR
 
 INSERT INTO Usuarios 
@@ -470,13 +481,44 @@ INSERT INTO rubros_local
 (id_local, id_rubro)
 values(1,1)
 
+/*INSERTO RUBROS*/
+
+INSERT INTO rubro
+(descripcion)
+values('Limpieza')
+
+INSERT INTO rubro
+(descripcion)
+values('comidas')
+
+INSERT INTO rubro
+(descripcion)
+values('Tecnologia')
+
+INSERT INTO rubro
+(descripcion)
+values('Computacion')
+
+/*INSERTO SERVICIOS*/
+
+INSERT INTO servicio
+(descripcion)
+values('Electricidad')
+
+INSERT INTO servicio
+(descripcion)
+values('Salud')
+
+INSERT INTO servicio
+(descripcion)
+values('Transporte publico')
+
+INSERT INTO servicio
+(descripcion)
+values('Vestimenta')
+
 
 /**************INSERTO HORARIOS A TODOS LOS POIS DE 9 A 18**************/
-INSERT INTO horario
-(id_poi, dia, hora_inicial, hora_final)
-	(select id_poi, 0, 9, 18
-	from poi)
-
 INSERT INTO horario
 (id_poi, dia, hora_inicial, hora_final)
 	(select id_poi, 1, 9, 18
@@ -505,4 +547,9 @@ INSERT INTO horario
 INSERT INTO horario
 (id_poi, dia, hora_inicial, hora_final)
 	(select id_poi, 6, 9, 18
+	from poi)
+
+INSERT INTO horario
+(id_poi, dia, hora_inicial, hora_final)
+	(select id_poi, 7, 9, 18
 	from poi)

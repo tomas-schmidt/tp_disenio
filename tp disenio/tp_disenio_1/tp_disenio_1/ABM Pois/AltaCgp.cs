@@ -86,7 +86,7 @@ namespace tp_disenio_1.ABM_Pois
                     if (bool.Parse(item.Cells[0].Value.ToString()))
                     {
                         var spAgregarServicioACgp = bd.obtenerStoredProcedure("agregarServicioACgp");
-                        spAgregarServicioACgp.Parameters.Add("@id_servicio", SqlDbType.VarChar).Value = item.Cells[2].Value.ToString();
+                        spAgregarServicioACgp.Parameters.Add("@id_servicio", SqlDbType.Int).Value = Convert.ToInt32(item.Cells[2].Value);
                         spAgregarServicioACgp.Parameters.Add("@id_cgp", SqlDbType.Int).Value = idCgp;
                         spAgregarServicioACgp.ExecuteNonQuery();
                         spAgregarServicioACgp.Connection.Close();

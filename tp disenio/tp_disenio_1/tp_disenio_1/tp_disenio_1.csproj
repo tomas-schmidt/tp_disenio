@@ -199,6 +199,9 @@
     <EmbeddedResource Include="ABM Pois\AltaPois.resx">
       <DependentUpon>AltaPois.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ABM Pois\ModificarPoi.resx">
+      <DependentUpon>ModificarPoi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>
     </EmbeddedResource>

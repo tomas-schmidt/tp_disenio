@@ -21,5 +21,23 @@ namespace tp_disenio_1.ABM_Pois
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BaseDeDatos bd = new BaseDeDatos();
+            var spCrearParada = bd.obtenerStoredProcedure("crearParada");
+            spCrearParada.Parameters.Add("@longitud", SqlDbType.Float).Value = txt_longitud.Text;
+            spCrearParada.Parameters.Add("@latitud", SqlDbType.Float).Value = txt_latitud.Text;
+            spCrearParada.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txt_nombre.Text;
+            spCrearParada.Parameters.Add("@numeroParada", SqlDbType.Int).Value = txt_numero.Text;
+            spCrearParada.Parameters.Add("@direccion", SqlDbType.VarChar).Value = txt_direccion.Text;
+
+            spCrearParada.ExecuteNonQuery();
+
+            spCrearParada.Connection.Close();
+            MessageBox.Show("Nueva parada cargada");
+            this.Close();
+            
+        }
     }
 }
