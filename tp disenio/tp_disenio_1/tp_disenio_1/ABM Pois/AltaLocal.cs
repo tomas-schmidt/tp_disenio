@@ -46,40 +46,39 @@ namespace tp_disenio_1.ABM_Pois
         {
             BaseDeDatos bd = new BaseDeDatos();
             var spCrearLocal = bd.obtenerStoredProcedure("crearLocal");
-            spCrearLocal.Parameters.Add("@longitud", SqlDbType.Float).Value = txt_longitud.Text;
-            spCrearLocal.Parameters.Add("@latitud", SqlDbType.Float).Value = txt_latitud.Text;
+            spCrearLocal.Parameters.Add("@longitud", SqlDbType.Float).Value = Convert.ToDouble(txt_longitud.Text);
+            spCrearLocal.Parameters.Add("@latitud", SqlDbType.Float).Value = Convert.ToDouble(txt_latitud.Text);
             spCrearLocal.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txt_nombre.Text;
             spCrearLocal.Parameters.Add("@radioCercania", SqlDbType.Int).Value = txt_radio.Text;
             spCrearLocal.Parameters.Add("@direccion", SqlDbType.VarChar).Value = txt_direccion.Text;
             
-            spCrearLocal.Parameters.Add("@horaInicio1", SqlDbType.Int).Value = txt_inicial1.Text;
-            spCrearLocal.Parameters.Add("@horaFin1", SqlDbType.Int).Value = txt_final1.Text;
+            spCrearLocal.Parameters.Add("@horaInicio1", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial1.Text);
+            spCrearLocal.Parameters.Add("@horaFin1", SqlDbType.Float).Value = Convert.ToDouble(txt_final1.Text);
 
-            spCrearLocal.Parameters.Add("@horaInicio2", SqlDbType.Int).Value = txt_inicial2.Text;
-            spCrearLocal.Parameters.Add("@horaFin2", SqlDbType.Int).Value = txt_final2.Text;
+            spCrearLocal.Parameters.Add("@horaInicio2", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial2.Text);
+            spCrearLocal.Parameters.Add("@horaFin2", SqlDbType.Float).Value = Convert.ToDouble(txt_final2.Text);
 
-            spCrearLocal.Parameters.Add("@horaInicio3", SqlDbType.Int).Value = txt_inicial3.Text;
-            spCrearLocal.Parameters.Add("@horaFin3", SqlDbType.Int).Value = txt_final3.Text;
+            spCrearLocal.Parameters.Add("@horaInicio3", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial3.Text);
+            spCrearLocal.Parameters.Add("@horaFin3", SqlDbType.Float).Value = Convert.ToDouble(txt_final3.Text);
 
-            spCrearLocal.Parameters.Add("@horaInicio4", SqlDbType.Int).Value = txt_inicial4.Text;
-            spCrearLocal.Parameters.Add("@horaFin4", SqlDbType.Int).Value = txt_final4.Text;
+            spCrearLocal.Parameters.Add("@horaInicio4", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial4.Text);
+            spCrearLocal.Parameters.Add("@horaFin4", SqlDbType.Float).Value = Convert.ToDouble(txt_final4.Text);
 
-            spCrearLocal.Parameters.Add("@horaInicio5", SqlDbType.Int).Value = txt_inicial5.Text;
-            spCrearLocal.Parameters.Add("@horaFin5", SqlDbType.Int).Value = txt_final5.Text;
+            spCrearLocal.Parameters.Add("@horaInicio5", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial5.Text);
+            spCrearLocal.Parameters.Add("@horaFin5", SqlDbType.Float).Value = Convert.ToDouble(txt_final5.Text);
 
-            spCrearLocal.Parameters.Add("@horaInicio6", SqlDbType.Int).Value = txt_inicial6.Text;
-            spCrearLocal.Parameters.Add("@horaFin6", SqlDbType.Int).Value = txt_final6.Text;
+            spCrearLocal.Parameters.Add("@horaInicio6", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial6.Text);
+            spCrearLocal.Parameters.Add("@horaFin6", SqlDbType.Float).Value = Convert.ToDouble(txt_final6.Text);
 
-            spCrearLocal.Parameters.Add("@horaInicio7", SqlDbType.Int).Value = txt_inicial7.Text;
-            spCrearLocal.Parameters.Add("@horaFin7", SqlDbType.Int).Value = txt_final7.Text;
+            spCrearLocal.Parameters.Add("@horaInicio7", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial7.Text);
+            spCrearLocal.Parameters.Add("@horaFin7", SqlDbType.Float).Value = Convert.ToDouble(txt_final7.Text);
 
 
             var reader = spCrearLocal.ExecuteReader();
             reader.Read();
             int idLocal = int.Parse(reader[0].ToString());
 
-            try
-            {
+           
                 foreach (DataGridViewRow item in dataGridView1.Rows)
                 {
                     if (bool.Parse(item.Cells[0].Value.ToString()))
@@ -94,14 +93,11 @@ namespace tp_disenio_1.ABM_Pois
 
 
                 spCrearLocal.Connection.Close();
-                MessageBox.Show("Nuevo Cgp cargado");
+                MessageBox.Show("Nuevo Local cargado");
                 this.Close();
-            }
+            
 
-            catch (SqlException excepcion)
-            {
-                MessageBox.Show(excepcion.Message);
-            }
+            
         }
         }
 }

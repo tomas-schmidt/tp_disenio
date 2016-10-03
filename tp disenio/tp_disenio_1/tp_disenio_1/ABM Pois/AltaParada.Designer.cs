@@ -30,6 +30,8 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_numero = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,8 +40,6 @@
             this.txt_longitud = new System.Windows.Forms.TextBox();
             this.txt_latitud = new System.Windows.Forms.TextBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_numero = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +70,23 @@
             this.groupBox2.Size = new System.Drawing.Size(275, 212);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nuevo CGP";
+            this.groupBox2.Text = "Nueva Parada";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 174);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Numero";
+            // 
+            // txt_numero
+            // 
+            this.txt_numero.Location = new System.Drawing.Point(82, 171);
+            this.txt_numero.Name = "txt_numero";
+            this.txt_numero.Size = new System.Drawing.Size(100, 20);
+            this.txt_numero.TabIndex = 16;
             // 
             // label4
             // 
@@ -135,22 +151,6 @@
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(178, 20);
             this.txt_nombre.TabIndex = 8;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 174);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Numero";
-            // 
-            // txt_numero
-            // 
-            this.txt_numero.Location = new System.Drawing.Point(82, 171);
-            this.txt_numero.Name = "txt_numero";
-            this.txt_numero.Size = new System.Drawing.Size(100, 20);
-            this.txt_numero.TabIndex = 16;
             // 
             // AltaParada
             // 

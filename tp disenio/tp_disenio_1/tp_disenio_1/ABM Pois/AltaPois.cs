@@ -22,5 +22,23 @@ namespace tp_disenio_1.ABM_Pois
             AltaParada ap = new AltaParada();
             ap.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AltaLocal al = new AltaLocal();
+            al.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AltaBanco ab = new AltaBanco();
+            ab.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AltaCgp ac = new AltaCgp();
+            ac.Show();
+        }
     }
 }

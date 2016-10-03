@@ -4,8 +4,8 @@ create table poi
 (
 	id_poi INT IDENTITY(1,1) PRIMARY KEY,
 	nombre varchar(50),
-	longitud int,
-	latitud int,
+	longitud numeric(18,2),
+	latitud numeric(18,2),
 	direccion varchar(255),
 	es_banco bit,
 	habilitado bit
@@ -71,8 +71,8 @@ create table horario
 (
 	id_poi int foreign key references poi,
 	dia int CHECK(dia < 8),
-	hora_inicial int,
-	hora_final int
+	hora_inicial numeric(18,2),
+	hora_final numeric(18,2),
 	constraint pk_horario primary key clustered (id_poi, dia)
 )
 GO
@@ -114,7 +114,7 @@ as
 begin
 	select id_local, nombre, longitud, latitud, direccion, radio_cercania, po.id_poi
 	from poi po join local lo 
-on po.id_poi = lo.id_poi
+	on po.id_poi = lo.id_poi
 end
 go
 
@@ -127,7 +127,7 @@ begin
 end
 go
 
-create procedure obtenerServiciosDeCgp (@id_cgp int)
+create procedure obtenerServiciosDeCgp @id_cgp int
 as
 begin
 	select descripcion
@@ -139,7 +139,7 @@ begin
 end
 go
 
-create procedure obtenerRubrosDeLocal (@id_local int)
+create procedure obtenerRubrosDeLocal @id_local int
 as
 begin
 	select descripcion
@@ -162,11 +162,11 @@ end
 go
 
 create procedure crearPoi 
-	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
-	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
-	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
-	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
-	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2)
+	@latitud numeric(18,2), @longitud numeric(18,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(18,2), @horaFin1 numeric(18,2), @horaInicio2 numeric(18,2), @horaFin2 numeric(18,2),
+	@horaInicio3 numeric(18,2), @horaFin3 numeric(18,2), @horaInicio4 numeric(18,2), @horaFin4 numeric(18,2),
+	@horaInicio5 numeric(18,2), @horaFin5 numeric(18,2), @horaInicio6 numeric(18,2), @horaFin6 numeric(18,2),
+	@horaInicio7 numeric(18,2), @horaFin7 numeric(18,2)
 as
 begin
 	declare @id_poi int
@@ -188,7 +188,7 @@ go
 
 
 create procedure crearParada
-	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),@numeroParada int
+	@latitud numeric(18,2), @longitud numeric(18,2), @direccion nvarchar(50), @nombre nvarchar(255),@numeroParada int
 as 
 begin
 
@@ -206,11 +206,11 @@ go
 
 
 create procedure crearLocal
-	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
-	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
-	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
-	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
-	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2), @radioCercania int
+	@latitud numeric(18,2), @longitud numeric(18,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(18,2), @horaFin1 numeric(18,2), @horaInicio2 numeric(18,2), @horaFin2 numeric(18,2),
+	@horaInicio3 numeric(18,2), @horaFin3 numeric(18,2), @horaInicio4 numeric(18,2), @horaFin4 numeric(18,2),
+	@horaInicio5 numeric(18,2), @horaFin5 numeric(18,2), @horaInicio6 numeric(18,2), @horaFin6 numeric(18,2),
+	@horaInicio7 numeric(18,2), @horaFin7 numeric(18,2), @radioCercania int
 as
 begin
 	declare @id_poi int
@@ -231,11 +231,11 @@ go
 
 
 create procedure crearCgp
-	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
-	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
-	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
-	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
-	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2), @comuna int
+	@latitud numeric(18,2), @longitud numeric(18,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(18,2), @horaFin1 numeric(18,2), @horaInicio2 numeric(18,2), @horaFin2 numeric(18,2),
+	@horaInicio3 numeric(18,2), @horaFin3 numeric(18,2), @horaInicio4 numeric(18,2), @horaFin4 numeric(18,2),
+	@horaInicio5 numeric(18,2), @horaFin5 numeric(18,2), @horaInicio6 numeric(18,2), @horaFin6 numeric(18,2),
+	@horaInicio7 numeric(18,2), @horaFin7 numeric(18,2), @comuna int
 as
 begin
 
@@ -256,11 +256,11 @@ end
 go
 
 create procedure crearBanco
-	@latitud numeric(2,2), @longitud numeric(2,2), @direccion nvarchar(50), @nombre nvarchar(255),
-	@horaInicio1 numeric(2,2), @horaFin1 numeric(2,2), @horaInicio2 numeric(2,2), @horaFin2 numeric(2,2),
-	@horaInicio3 numeric(2,2), @horaFin3 numeric(2,2), @horaInicio4 numeric(2,2), @horaFin4 numeric(2,2),
-	@horaInicio5 numeric(2,2), @horaFin5 numeric(2,2), @horaInicio6 numeric(2,2), @horaFin6 numeric(2,2),
-	@horaInicio7 numeric(2,2), @horaFin7 numeric(2,2)
+	@latitud numeric(18,2), @longitud numeric(18,2), @direccion nvarchar(50), @nombre nvarchar(255),
+	@horaInicio1 numeric(18,2), @horaFin1 numeric(18,2), @horaInicio2 numeric(18,2), @horaFin2 numeric(18,2),
+	@horaInicio3 numeric(18,2), @horaFin3 numeric(18,2), @horaInicio4 numeric(18,2), @horaFin4 numeric(18,2),
+	@horaInicio5 numeric(18,2), @horaFin5 numeric(18,2), @horaInicio6 numeric(18,2), @horaFin6 numeric(18,2),
+	@horaInicio7 numeric(18,2), @horaFin7 numeric(18,2)
 as
 begin
 	declare @id_poi int
@@ -457,8 +457,8 @@ values('un servicio')
 values(5,3,'comuna numero 2' ,'av cordoba 1000', 0)
 
 INSERT INTO cgp
-(comuna)
-values(2)
+(comuna, id_poi)
+values(2, 3)
 
 INSERT INTO servicios_cgp
 (id_cgp, id_servicio)
@@ -470,8 +470,8 @@ values(1,1)
 values(5,3,'libreria escolar' ,'medrano 1200', 0)
 
 INSERT INTO local
-(radio_cercania)
-values(500)
+(radio_cercania, id_poi)
+values(500, 4)
 
 INSERT INTO rubro
 (descripcion)

@@ -47,32 +47,32 @@ namespace tp_disenio_1.ABM_Pois
         {
             BaseDeDatos bd = new BaseDeDatos();
             var spCrearCgp = bd.obtenerStoredProcedure("crearCgp");
-            spCrearCgp.Parameters.Add("@longitud", SqlDbType.Float).Value = txt_longitud.Text;
-            spCrearCgp.Parameters.Add("@latitud", SqlDbType.Float).Value = txt_latitud.Text;
+            spCrearCgp.Parameters.Add("@longitud", SqlDbType.Float).Value = Convert.ToDouble(txt_longitud.Text);
+            spCrearCgp.Parameters.Add("@latitud", SqlDbType.Float).Value = Convert.ToDouble(txt_latitud.Text);
             spCrearCgp.Parameters.Add("@nombre", SqlDbType.VarChar).Value = txt_nombre.Text;
             spCrearCgp.Parameters.Add("@comuna", SqlDbType.Int).Value = txt_comuna.Text;
             spCrearCgp.Parameters.Add("@direccion", SqlDbType.VarChar).Value = txt_direccion.Text;
             
-            spCrearCgp.Parameters.Add("@horaInicio1", SqlDbType.Int).Value = txt_inicial1.Text;
-            spCrearCgp.Parameters.Add("@horaFin1", SqlDbType.Int).Value = txt_final1.Text;
+            spCrearCgp.Parameters.Add("@horaInicio1", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial1.Text);
+            spCrearCgp.Parameters.Add("@horaFin1", SqlDbType.Float).Value = Convert.ToDouble(txt_final1.Text);
 
-            spCrearCgp.Parameters.Add("@horaInicio2", SqlDbType.Int).Value = txt_inicial2.Text;
-            spCrearCgp.Parameters.Add("@horaFin2", SqlDbType.Int).Value = txt_final2.Text;
+            spCrearCgp.Parameters.Add("@horaInicio2", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial2.Text);
+            spCrearCgp.Parameters.Add("@horaFin2", SqlDbType.Float).Value = Convert.ToDouble(txt_final2.Text);
 
-            spCrearCgp.Parameters.Add("@horaInicio3", SqlDbType.Int).Value = txt_inicial3.Text;
-            spCrearCgp.Parameters.Add("@horaFin3", SqlDbType.Int).Value = txt_final3.Text;
+            spCrearCgp.Parameters.Add("@horaInicio3", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial3.Text);
+            spCrearCgp.Parameters.Add("@horaFin3", SqlDbType.Float).Value = Convert.ToDouble(txt_final3.Text);
 
-            spCrearCgp.Parameters.Add("@horaInicio4", SqlDbType.Int).Value = txt_inicial4.Text;
-            spCrearCgp.Parameters.Add("@horaFin4", SqlDbType.Int).Value = txt_final4.Text;
+            spCrearCgp.Parameters.Add("@horaInicio4", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial4.Text);
+            spCrearCgp.Parameters.Add("@horaFin4", SqlDbType.Float).Value = Convert.ToDouble(txt_final4.Text);
 
-            spCrearCgp.Parameters.Add("@horaInicio5", SqlDbType.Int).Value = txt_inicial5.Text;
-            spCrearCgp.Parameters.Add("@horaFin5", SqlDbType.Int).Value = txt_final5.Text;
+            spCrearCgp.Parameters.Add("@horaInicio5", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial5.Text);
+            spCrearCgp.Parameters.Add("@horaFin5", SqlDbType.Float).Value = Convert.ToDouble(txt_final5.Text);
 
-            spCrearCgp.Parameters.Add("@horaInicio6", SqlDbType.Int).Value = txt_inicial6.Text;
-            spCrearCgp.Parameters.Add("@horaFin6", SqlDbType.Int).Value = txt_final6.Text;
+            spCrearCgp.Parameters.Add("@horaInicio6", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial6.Text);
+            spCrearCgp.Parameters.Add("@horaFin6", SqlDbType.Float).Value = Convert.ToDouble(txt_final6.Text);
 
-            spCrearCgp.Parameters.Add("@horaInicio7", SqlDbType.Int).Value = txt_inicial7.Text;
-            spCrearCgp.Parameters.Add("@horaFin7", SqlDbType.Int).Value = txt_final7.Text;
+            spCrearCgp.Parameters.Add("@horaInicio7", SqlDbType.Float).Value = Convert.ToDouble(txt_inicial7.Text);
+            spCrearCgp.Parameters.Add("@horaFin7", SqlDbType.Float).Value = Convert.ToDouble(txt_final7.Text);
 
 
             var reader = spCrearCgp.ExecuteReader();

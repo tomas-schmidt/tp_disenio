@@ -166,12 +166,12 @@ namespace tp_disenio_1
                 List<Servicio> listaServicios = new List<Servicio>();
                 spObtenerServiciosDeCgp.Parameters.Add("@id_cgp", SqlDbType.Int).Value = Convert.ToInt32(item["id_cgp"]);
                 sda.SelectCommand = spObtenerServiciosDeCgp;
-                DataTable dbdataset3 = new DataTable();
-                sda.Fill(dbdataset3);
-                foreach (DataRow item3 in dbdataset3.Rows)
+                DataTable dbdataset7 = new DataTable();
+                sda.Fill(dbdataset7);
+                foreach (DataRow item7 in dbdataset7.Rows)
                 {
                     Servicio unServicio;
-                    unServicio = new Servicio(item["descripcion"].ToString(), lunesAVierner9a18);
+                    unServicio = new Servicio(item7["descripcion"].ToString(), lunesAVierner9a18);
                 }
                 CGP cgp;
                 cgp = new CGP(Convert.ToDouble(item["latitud"]), Convert.ToDouble(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18, Convert.ToInt32(item["comuna"]), listaServicios);

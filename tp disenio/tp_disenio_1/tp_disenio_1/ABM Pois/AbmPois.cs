@@ -30,6 +30,12 @@ namespace tp_disenio_1
         
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ModificarPoi mp = new ModificarPoi();
+            mp.Show();
+        }
+
        
     }
 }
