@@ -132,10 +132,9 @@ as
 begin
 	select descripcion
 	from servicio s join servicios_cgp sc
-	on s.id_servicio = sc.id_servicio
+	on s.id_servicio = sc.id_servicio and sc.id_cgp = @id_cgp
 	join cgp c
-	on c.id_cgp = sc.id_cgp
-	where c.id_cgp = @id_cgp
+	on c.id_cgp = sc.id_cgp and c.id_cgp = @id_cgp
 end
 go
 
@@ -144,10 +143,9 @@ as
 begin
 	select descripcion
 	from rubro r join rubros_local rl
-	on r.id_rubro = rl.id_rubro
+	on r.id_rubro = rl.id_rubro and rl.id_local = @id_local
 	join local l
-	on l.id_local = rl.id_local
-	where l.id_local = @id_local
+	on l.id_local = rl.id_local and l.id_local = @id_local
 end
 go
 

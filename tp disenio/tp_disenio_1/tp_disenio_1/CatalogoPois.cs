@@ -104,9 +104,9 @@ namespace tp_disenio_1
             BaseDeDatos bd = new BaseDeDatos();
             var spObtenerParadas = bd.obtenerStoredProcedure("obtenerParadas");
             var spObtenerLocales = bd.obtenerStoredProcedure("obtenerLocales");
-            var spObtenerRubrosDeLocal = bd.obtenerStoredProcedure("obtenerRubrosDeLocal");
+            
             var spObtenerCgps = bd.obtenerStoredProcedure("obtenerCgps");
-            var spObtenerServiciosDeCgp = bd.obtenerStoredProcedure("obtenerServiciosDeCgp");
+
             var spObtenerBancos = bd.obtenerStoredProcedure("obtenerBancos");
             var spObtenerHorariosPoi = bd.obtenerStoredProcedure("obtenerHorariosPoi");
 
@@ -139,9 +139,11 @@ namespace tp_disenio_1
             sda.SelectCommand = spObtenerLocales;
             DataTable dbdataset2 = new DataTable();
             sda.Fill(dbdataset2);
+            
             foreach (DataRow item in dbdataset2.Rows)
             {
                 HashSet<string> rubros = new HashSet<string>();
+                var spObtenerRubrosDeLocal = bd.obtenerStoredProcedure("obtenerRubrosDeLocal");
                 spObtenerRubrosDeLocal.Parameters.Add("@id_local", SqlDbType.Int).Value = Convert.ToInt32(item["id_local"]);
                 sda.SelectCommand = spObtenerRubrosDeLocal;
                 DataTable dbdataset3 = new DataTable();
@@ -153,6 +155,7 @@ namespace tp_disenio_1
                 }
                 Local local;
                 local = new Local(Convert.ToDouble(item["latitud"]), Convert.ToDouble(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18, rubros, Convert.ToInt32(item["radio_cercania"]));
+                
 
                 pois.Add(local);
             }
@@ -164,6 +167,7 @@ namespace tp_disenio_1
             foreach (DataRow item in dbdataset4.Rows)
             {
                 List<Servicio> listaServicios = new List<Servicio>();
+                var spObtenerServiciosDeCgp = bd.obtenerStoredProcedure("obtenerServiciosDeCgp");
                 spObtenerServiciosDeCgp.Parameters.Add("@id_cgp", SqlDbType.Int).Value = Convert.ToInt32(item["id_cgp"]);
                 sda.SelectCommand = spObtenerServiciosDeCgp;
                 DataTable dbdataset7 = new DataTable();
