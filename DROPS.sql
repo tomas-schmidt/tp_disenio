@@ -18,6 +18,10 @@ DROP PROCEDURE crearParada
 DROP PROCEDURE crearBanco
 DROP PROCEDURE crearCgp
 DROP PROCEDURE crearLocal
+DROP PROCEDURE obtenerServicios
+DROP PROCEDURE obtenerRubros
+DROP PROCEDURE agregarServicioACgp
+DROP PROCEDURE agregarRubroALocal
 
 DROP TABLE Usuarios
 DROP TABLE Consultas

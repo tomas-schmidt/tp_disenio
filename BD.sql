@@ -228,7 +228,9 @@ begin
 
 	set @id_poi  = (select top 1 id_poi from poi order by id_poi desc)
 
-insert into local (radio_cercania, id_poi) values (@radioCercania, @id_poi)
+	insert into local (radio_cercania, id_poi) values (@radioCercania, @id_poi)
+
+	select top 1 id_local from local order by id_local desc
 end
 go
 
@@ -253,6 +255,8 @@ begin
 	set @id_poi  = (select top 1 id_poi from poi order by id_poi desc)
 
 	insert into cgp (comuna, id_poi) values (@comuna, @id_poi)
+
+	select top 1 id_cgp from cgp order by id_cgp desc
 end
 go
 
@@ -280,6 +284,42 @@ begin
 	insert into horario (id_poi, dia, hora_inicial, hora_final) values (@id_poi, 7, @horaInicio7, @horaFin7)
 end
 go
+
+create procedure obtenerServicios
+as
+begin
+	select descripcion, id_servicio
+	from servicio
+end
+go
+
+
+create procedure obtenerRubros
+as
+begin
+	select descripcion, id_rubro
+	from rubro
+end
+go
+
+
+create procedure agregarServicioACgp @id_cgp int, @id_servicio int
+as
+begin
+	insert into servicios_cgp(id_cgp, id_servicio)
+	values(@id_cgp, @id_servicio)
+end
+go
+
+
+create procedure agregarRubroALocal @id_local int, @id_rubro int
+as
+begin
+	insert into rubros_local(id_local, id_rubro)
+	values(@id_local, @id_rubro)
+end
+go
+
 
 --AGREGO USUARIO ADMINISTRADOR
 

@@ -75,11 +75,35 @@
     <Compile Include="ABM Pois\AbmPois.Designer.cs">
       <DependentUpon>AbmPois.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Pois\AltaPoi.cs">
+    <Compile Include="ABM Pois\AltaBanco.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Pois\AltaPoi.Designer.cs">
-      <DependentUpon>AltaPoi.cs</DependentUpon>
+    <Compile Include="ABM Pois\AltaBanco.Designer.cs">
+      <DependentUpon>AltaBanco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Pois\AltaCgp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Pois\AltaCgp.Designer.cs">
+      <DependentUpon>AltaCgp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Pois\AltaLocal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Pois\AltaLocal.Designer.cs">
+      <DependentUpon>AltaLocal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Pois\AltaParada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Pois\AltaParada.Designer.cs">
+      <DependentUpon>AltaParada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Pois\AltaPois.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Pois\AltaPois.Designer.cs">
+      <DependentUpon>AltaPois.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Pois\ModificarPoi.cs">
       <SubType>Form</SubType>
@@ -160,8 +184,20 @@
     <EmbeddedResource Include="ABM Pois\AbmPois.resx">
       <DependentUpon>AbmPois.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Pois\AltaPoi.resx">
-      <DependentUpon>AltaPoi.cs</DependentUpon>
+    <EmbeddedResource Include="ABM Pois\AltaBanco.resx">
+      <DependentUpon>AltaBanco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Pois\AltaCgp.resx">
+      <DependentUpon>AltaCgp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Pois\AltaLocal.resx">
+      <DependentUpon>AltaLocal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Pois\AltaParada.resx">
+      <DependentUpon>AltaParada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Pois\AltaPois.resx">
+      <DependentUpon>AltaPois.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador.resx">
       <DependentUpon>Administrador.cs</DependentUpon>

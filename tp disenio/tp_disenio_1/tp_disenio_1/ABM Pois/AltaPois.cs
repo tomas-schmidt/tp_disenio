@@ -7,29 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using tp_disenio_1.ABM_Pois;
 
-namespace tp_disenio_1
+namespace tp_disenio_1.ABM_Pois
 {
-    public partial class AbmPois : Form
+    public partial class AltaPois : Form
     {
-        public AbmPois()
+        public AltaPois()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AltaPois ap = new AltaPois();
+            AltaParada ap = new AltaParada();
             ap.Show();
-
         }
-
-        private void AbmPois_Load(object sender, EventArgs e)
-        {
-        
-        }
-
-       
     }
 }
