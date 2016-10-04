@@ -104,9 +104,7 @@ namespace tp_disenio_1
             BaseDeDatos bd = new BaseDeDatos();
             var spObtenerParadas = bd.obtenerStoredProcedure("obtenerParadas");
             var spObtenerLocales = bd.obtenerStoredProcedure("obtenerLocales");
-            
             var spObtenerCgps = bd.obtenerStoredProcedure("obtenerCgps");
-
             var spObtenerBancos = bd.obtenerStoredProcedure("obtenerBancos");
             var spObtenerHorariosPoi = bd.obtenerStoredProcedure("obtenerHorariosPoi");
 
@@ -119,17 +117,6 @@ namespace tp_disenio_1
             sda.Fill(dbdataset);
             foreach (DataRow item in dbdataset.Rows)
             {
-                Tuple<int, int>[] matrizHorarios;
-                matrizHorarios = new Tuple<int, int>[7];
-
-                /*spObtenerHorariosPoi.Parameters.Add("@id_poi", SqlDbType.Int).Value = Convert.ToInt32(item["id_poi"]);
-                sda.SelectCommand = spObtenerRubrosDeLocal;
-                DataTable dbdataset6 = new DataTable();
-                sda.Fill(dbdataset6);
-                foreach (DataRow item6 in dbdataset6.Rows)
-                {
-                    matrizHorarios.Aggregate<Tuple<(Convert.ToInt32(item["id_poi"]), (Convert.ToInt32(item["id_poi"])>;
-                }*/
                 Parada parada;
                 parada = new Parada(Convert.ToDouble(item["latitud"]), Convert.ToDouble(item["longitud"]), item["nombre"].ToString(), item["direccion"].ToString(), lunesAVierner9a18, item["numero"].ToString());
                 pois.Add(parada);     
