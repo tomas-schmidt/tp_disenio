@@ -89,14 +89,14 @@
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button6.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button6.Location = new System.Drawing.Point(109, 160);
+            this.button6.Location = new System.Drawing.Point(41, 178);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(111, 50);
+            this.button6.Size = new System.Drawing.Size(245, 37);
             this.button6.TabIndex = 9;
-            this.button6.Text = "Desloguear";
+            this.button6.Text = "Cerrar sesion";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 

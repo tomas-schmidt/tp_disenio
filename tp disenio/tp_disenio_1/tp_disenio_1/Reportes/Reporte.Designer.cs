@@ -51,7 +51,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(71, 59);
+            this.button1.Location = new System.Drawing.Point(69, 90);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(207, 54);
             this.button1.TabIndex = 0;
@@ -93,7 +93,7 @@
             this.Fecha,
             this.CantidadBusquedas});
             this.dataGridView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dataGridView1.Location = new System.Drawing.Point(48, 119);
+            this.dataGridView1.Location = new System.Drawing.Point(46, 150);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(253, 319);
             this.dataGridView1.TabIndex = 4;
@@ -164,7 +164,7 @@
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(355, 23);
+            this.groupBox1.Location = new System.Drawing.Point(353, 54);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(557, 433);
             this.groupBox1.TabIndex = 8;
@@ -177,7 +177,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(949, 468);
+            this.ClientSize = new System.Drawing.Size(949, 509);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);

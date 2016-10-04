@@ -42,7 +42,8 @@ namespace tp_disenio_1
                 var spGuardarUsuarioSesionActual = bd.obtenerStoredProcedure("GuardarUsuarioSesionActual");
                 spGuardarUsuarioSesionActual.Parameters.Add("@usuario", SqlDbType.VarChar).Value = txtNombre.Text;
                 spGuardarUsuarioSesionActual.ExecuteNonQuery();
-                spGuardarUsuarioSesionActual.Connection.Close(); 
+                spGuardarUsuarioSesionActual.Connection.Close();
+                this.Close();
                 Administrador ad =new Administrador();
                 ad.Show();                
             }
