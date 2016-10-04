@@ -58,6 +58,8 @@ namespace tp_disenio_1.ABM_Pois
             spCrearBanco.Connection.Close();
             MessageBox.Show("Nuevo banco cargado");
             this.Close();
+            AbmPois ab = new AbmPois();
+            ab.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)

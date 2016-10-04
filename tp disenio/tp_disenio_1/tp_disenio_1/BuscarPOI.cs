@@ -337,9 +337,11 @@ namespace tp_disenio_1
 
             button3_Click(sender,e);
 
+            columna1 = string.Empty;
 
+            txt_TextoBuscado.Text = "";
+                
 
-       
         }
 
         private void txt_TextoBuscado_TextChanged(object sender, EventArgs e)

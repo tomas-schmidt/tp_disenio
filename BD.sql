@@ -143,6 +143,7 @@ begin
 	select nombre, longitud, latitud, direccion, id_poi
 	from poi 
 	where es_banco like 1 and habilitado = 1
+	
 
 end
 go

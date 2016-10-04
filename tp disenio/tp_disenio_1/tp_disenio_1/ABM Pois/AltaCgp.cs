@@ -97,6 +97,8 @@ namespace tp_disenio_1.ABM_Pois
                 spCrearCgp.Connection.Close();
                 MessageBox.Show("Nuevo Cgp cargado");
                 this.Close();
+                AbmPois ab = new AbmPois();
+                ab.Show();
             }
 
             catch (SqlException excepcion)

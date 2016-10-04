@@ -37,7 +37,8 @@ namespace tp_disenio_1.ABM_Pois
             spCrearParada.Connection.Close();
             MessageBox.Show("Nueva parada cargada");
             this.Close();
-            
+            AbmPois ab = new AbmPois();
+            ab.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)

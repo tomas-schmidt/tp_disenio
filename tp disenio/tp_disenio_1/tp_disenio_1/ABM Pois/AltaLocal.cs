@@ -95,6 +95,8 @@ namespace tp_disenio_1.ABM_Pois
                 spCrearLocal.Connection.Close();
                 MessageBox.Show("Nuevo Local cargado");
                 this.Close();
+                AbmPois ab = new AbmPois();
+                ab.Show();
             
 
             
