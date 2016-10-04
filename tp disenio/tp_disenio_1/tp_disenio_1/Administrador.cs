@@ -21,19 +21,22 @@ namespace tp_disenio_1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Close();
             AbmPois ap = new AbmPois();
             ap.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            this.Close();
             Reporte reporte = new Reporte();
             reporte.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BuscarPOI fo = new BuscarPOI();
+            this.Hide();
+            BuscarPOI fo = new BuscarPOI(this);
             fo.Show();
         }
 
@@ -55,6 +58,11 @@ namespace tp_disenio_1
             this.Close();
             Inicio PantallaDeInicio = new Inicio();
             PantallaDeInicio.Show();
+        }
+
+        private void Administrador_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

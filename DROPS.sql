@@ -4,6 +4,7 @@ DROP PROCEDURE GuardarUsuarioSesionActual
 DROP PROCEDURE cantidadDeBusquedasPorFecha
 DROP PROCEDURE resultadosParciales
 DROP PROCEDURE resultadosTotales
+DROP PROCEDURE resultadosPorUsuario
 DROP PROCEDURE obtenerParametrosBusqueda
 DROP PROCEDURE guardarParametrosBusqueda
 DROP PROCEDURE obtenerParadas

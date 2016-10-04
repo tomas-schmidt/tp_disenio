@@ -73,6 +73,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_final1 = new System.Windows.Forms.TextBox();
             this.txt_inicial1 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -80,12 +81,14 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(189, 455);
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(193, 445);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 23);
+            this.button1.Size = new System.Drawing.Size(186, 41);
             this.button1.TabIndex = 16;
             this.button1.Text = "Crear nuevo Local";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
@@ -482,11 +485,30 @@
             this.txt_inicial1.Size = new System.Drawing.Size(38, 20);
             this.txt_inicial1.TabIndex = 1;
             // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::tp_disenio_1.Properties.Resources.atras__3_;
+            this.button4.Location = new System.Drawing.Point(12, 436);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(66, 60);
+            this.button4.TabIndex = 20;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AltaLocal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(552, 508);
+            this.ControlBox = false;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
@@ -550,5 +572,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_final1;
         private System.Windows.Forms.TextBox txt_inicial1;
+        private System.Windows.Forms.Button button4;
     }
 }

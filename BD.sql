@@ -490,6 +490,12 @@ GROUP BY usuario
 ORDER BY usuario;
 GO 
 
+CREATE PROCEDURE resultadosPorUsuario
+AS
+SELECT texto from Consultas c JOIN UsuarioSesionActual u ON (c.usuario=u.Nombre)
+group by texto
+GO 
+
 CREATE PROCEDURE guardarParametrosBusqueda
 	@mail varchar(50),
 	@tiempoMaxBusqueda INT
@@ -517,12 +523,43 @@ values(6,8,'parada del 114' ,'avellaneda 367', 0, 1)
 INSERT INTO parada
 (id_poi, numero)
 values(1, 114)
+
+INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(5,5,'parada del 109' ,'nazarre 4500', 0, 1)
+
+INSERT INTO parada
+(id_poi, numero)
+values(2, 109)
+
+INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(12,11,'parada del 107' ,'beiro 3545', 0, 1)
+
+INSERT INTO parada
+(id_poi, numero)
+values(3, 107)
  
 /*AGREGO BANCO SANTANDER*/
  INSERT INTO poi
 (latitud, longitud, nombre, direccion, es_banco, habilitado)
 values(6,9,'banco santander' ,'lavalle 1502', 1, 1)
 
+ INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(14,20,'banco galicia' ,'Raul Scalabrini Ortiz 945', 1, 1)
+
+ INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(12,15,'banco frances' ,'Corrientes 4694', 1, 1)
+
+ INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(25,30,'banco santander' ,'Cordoba 5030', 1, 1)
+
+ INSERT INTO poi
+(latitud, longitud, nombre, direccion, es_banco, habilitado)
+values(18,17,'banco BBVA' ,'Corrientes 4626', 1, 1)
 
 /*AGREGO CGP "COMUNA 2"*/
 INSERT INTO servicio

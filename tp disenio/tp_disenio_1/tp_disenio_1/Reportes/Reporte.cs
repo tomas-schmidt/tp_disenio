@@ -106,5 +106,19 @@ namespace tp_disenio_1.Reportes
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();            
+            Inicio PantallaDeInicio = new Inicio();
+            PantallaDeInicio.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Administrador ad = new Administrador();
+            ad.Show(); 
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace tp_disenio_1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             AltaPois ap = new AltaPois();
             ap.Show();
 
@@ -32,8 +33,23 @@ namespace tp_disenio_1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Close();
             ModificarPoi mp = new ModificarPoi();
             mp.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Administrador ad = new Administrador();
+            ad.Show(); 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Inicio PantallaDeInicio = new Inicio();
+            PantallaDeInicio.Show();
         }
 
        

@@ -104,5 +104,12 @@ namespace tp_disenio_1.ABM_Pois
                 MessageBox.Show(excepcion.Message);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AltaPois ad = new AltaPois();
+            ad.Show(); 
+        }
     }
 }

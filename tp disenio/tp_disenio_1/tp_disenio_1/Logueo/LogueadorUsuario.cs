@@ -33,7 +33,8 @@ namespace tp_disenio_1.Logueo
             var spGuardarUsuarioSesionActual = bd.obtenerStoredProcedure("GuardarUsuarioSesionActual");
             spGuardarUsuarioSesionActual.Parameters.Add("@usuario", SqlDbType.VarChar).Value = textBox1.Text;
             spGuardarUsuarioSesionActual.ExecuteNonQuery();
-            spGuardarUsuarioSesionActual.Connection.Close();                      
+            spGuardarUsuarioSesionActual.Connection.Close();
+            this.Close();        
             BuscarPOI fo2 = new BuscarPOI();
             fo2.Show();
         }

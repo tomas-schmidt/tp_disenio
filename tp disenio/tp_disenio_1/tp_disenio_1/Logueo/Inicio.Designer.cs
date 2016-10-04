@@ -68,7 +68,7 @@ namespace tp_disenio_1
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(214, 137);
-            this.ControlBox = false;
+            this.ControlBox = true;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Inicio";

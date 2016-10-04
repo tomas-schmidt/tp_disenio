@@ -40,17 +40,20 @@
             this.txt_longitud = new System.Windows.Forms.TextBox();
             this.txt_latitud = new System.Windows.Forms.TextBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(90, 245);
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(113, 245);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 23);
+            this.button1.Size = new System.Drawing.Size(133, 52);
             this.button1.TabIndex = 12;
             this.button1.Text = "Crear nueva parada";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
@@ -152,11 +155,30 @@
             this.txt_nombre.Size = new System.Drawing.Size(178, 20);
             this.txt_nombre.TabIndex = 8;
             // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::tp_disenio_1.Properties.Resources.atras__3_;
+            this.button4.Location = new System.Drawing.Point(12, 245);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(66, 60);
+            this.button4.TabIndex = 21;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AltaParada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 286);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(339, 313);
+            this.ControlBox = false;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Name = "AltaParada";
@@ -181,5 +203,6 @@
         private System.Windows.Forms.TextBox txt_longitud;
         private System.Windows.Forms.TextBox txt_latitud;
         private System.Windows.Forms.TextBox txt_nombre;
+        private System.Windows.Forms.Button button4;
     }
 }

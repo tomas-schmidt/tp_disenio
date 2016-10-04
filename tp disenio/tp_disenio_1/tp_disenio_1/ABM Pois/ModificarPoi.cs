@@ -61,5 +61,12 @@ namespace tp_disenio_1.ABM_Pois
                 this.cargarTabla();
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AltaPois ad = new AltaPois();
+            ad.Show(); 
+        }
     }
 }

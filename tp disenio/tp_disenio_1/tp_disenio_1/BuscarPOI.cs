@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using tp_disenio_1.Reportes;
+using tp_disenio_1.Logueo;
 using System.Net;
 using System.Net.Mail;
 using System.Diagnostics;
@@ -18,8 +19,15 @@ namespace tp_disenio_1
 {
     public partial class BuscarPOI : Form
     {
+        bool llamadoDesdeAdministrador = false;
         public BuscarPOI()
         {
+            InitializeComponent();
+        }
+
+        public BuscarPOI(Administrador ad)
+        {
+            llamadoDesdeAdministrador = true;
             InitializeComponent();
         }
 
@@ -49,7 +57,19 @@ namespace tp_disenio_1
             //    this.Close();
             //}
 
-            
+            BaseDeDatos bd = new BaseDeDatos();
+            var spresultadosPorUsuario = bd.obtenerStoredProcedure("resultadosPorUsuario");
+            SqlDataAdapter sda = new SqlDataAdapter();
+            sda.SelectCommand = spresultadosPorUsuario;
+            DataTable dbdataset = new DataTable();
+            sda.Fill(dbdataset);
+            dataGridView2.Rows.Clear();
+            foreach (DataRow item in dbdataset.Rows)
+            {
+                int n = dataGridView2.Rows.Add();
+                dataGridView2.Rows[n].Cells[0].Value = item["texto"].ToString();                
+            }
+
             ////////////////////////////// PRUEBAS /////////////////////////////////////////
 
             //creamos algunos objetos
@@ -279,6 +299,53 @@ namespace tp_disenio_1
 
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Inicio PantallaDeInicio = new Inicio();
+            PantallaDeInicio.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (llamadoDesdeAdministrador)
+            {
+                this.Close();
+                Administrador ad = new Administrador();
+                ad.Show(); 
+            }
+            else
+            {
+                this.Close();
+                LogueadorUsuario log = new LogueadorUsuario();
+                log.Show(); 
+            }
+
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            string columna1 = string.Empty;
+
+            DataGridViewRow fila = dataGridView2.CurrentRow; // obtengo la fila actualmente seleccionada en el dataGridView
+
+            columna1 = Convert.ToString(fila.Cells[0].Value); //obtengo el valor de la primer columna
+
+            txt_TextoBuscado.Text = columna1;
+
+            button3_Click(sender,e);
+
+
+
+       
+        }
+
+        private void txt_TextoBuscado_TextChanged(object sender, EventArgs e)
+        {
+
+        }           
 
     }
 }

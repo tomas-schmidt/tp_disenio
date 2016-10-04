@@ -53,5 +53,10 @@ namespace tp_disenio_1
             spguardarParametrosBusqueda.Connection.Close();
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
